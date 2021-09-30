@@ -39,5 +39,5 @@ The main reason is that it contains the source(URL) I scrape data from. (though 
 
 
 ### Upcoming plans
-- Search functionality
+- Search functionalities
 
