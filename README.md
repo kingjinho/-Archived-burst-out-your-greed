@@ -24,17 +24,17 @@ One thing to notice is that `I intentionally removed part of build.gradle file`.
 The main reason is that it contains the source(URL) I scrape data from. (though I post screenshots of UI)
 
 ### ScreenShots
-![screenshot](./screenshots/dark_main_1.jpg)
-![screenshot](./screenshots/dark_main_2.jpg)
-![screenshot](./screenshots/dark_main_3.jpg)
-![screenshot](./screenshots/dark_main_4.jpg)
-![screenshot](./screenshots/dark_detail_1.jpg)
-![screenshot](./screenshots/dark_detail_2.jpg)
-![screenshot](./screenshots/dark_detail_2.jpg)
-![screenshot](./screenshots/light_screenshot1.jpg)
-![screenshot](./screenshots/light_screenshot2.jpg)
-![screenshot](./screenshots/light_screenshot3.jpg)
-![screenshot](./screenshots/light_screenshot4.jpg)
+![screenshot](./screenshots/dark_main_1.jpg){: width="100" height="100"} 
+![screenshot](./screenshots/dark_main_2.jpg){: width="100" height="100"}
+![screenshot](./screenshots/dark_main_3.jpg){: width="100" height="100"}
+![screenshot](./screenshots/dark_main_4.jpg){: width="100" height="100"}
+![screenshot](./screenshots/dark_detail_1.jpg){: width="100" height="100"}
+![screenshot](./screenshots/dark_detail_2.jpg){: width="100" height="100"}
+![screenshot](./screenshots/dark_detail_2.jpg){: width="100" height="100"}
+![screenshot](./screenshots/light_screenshot1.jpg){: width="100" height="100"}
+![screenshot](./screenshots/light_screenshot2.jpg){: width="100" height="100"}
+![screenshot](./screenshots/light_screenshot3.jpg){: width="100" height="100"}
+![screenshot](./screenshots/light_screenshot4.jpg){: width="100" height="100"}
 
 
 
