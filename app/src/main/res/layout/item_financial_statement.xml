@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="statement"
+            type="com.projectseoul.stockmarkettest.models.StockFinancialStatement" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rounded_corner"
+        android:padding="@dimen/all_16dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title1"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/all_16dp"
+            android:text="@string/all_total_asset"
+            app:layout_constraintBottom_toTopOf="@+id/title2"
+            app:layout_constraintEnd_toStartOf="@+id/asset"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/asset"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/all_16dp"
+            android:text="@{statement.totalAsset}"
+            app:layout_constraintBottom_toTopOf="@+id/debt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintStart_toEndOf="@+id/title1"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="9999999999999999" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title2"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/all_16dp"
+            android:text="@string/all_total_debt"
+            app:layout_constraintBottom_toTopOf="@+id/title3"
+            app:layout_constraintEnd_toEndOf="@id/title1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title1" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/debt"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/all_16dp"
+            android:text="@{statement.totalDebt}"
+            app:layout_constraintBottom_toTopOf="@+id/capital"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/asset"
+            app:layout_constraintTop_toBottomOf="@+id/asset"
+            tools:text="123412341234" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title3"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/all_16dp"
+            android:text="@string/all_capital"
+            app:layout_constraintBottom_toTopOf="@+id/title4"
+            app:layout_constraintEnd_toEndOf="@id/title1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title2" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/capital"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/all_16dp"
+            android:text="@{statement.capital}"
+            app:layout_constraintBottom_toTopOf="@+id/totalCapital"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/asset"
+            app:layout_constraintTop_toBottomOf="@+id/debt"
+            tools:text="자산총계" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title4"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/all_16dp"
+            android:text="@string/all_total_capital"
+            app:layout_constraintBottom_toTopOf="@+id/title5"
+            app:layout_constraintEnd_toEndOf="@id/title1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title3" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/totalCapital"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/all_16dp"
+            android:text="@{statement.totalCapital}"
+            app:layout_constraintBottom_toTopOf="@+id/sales"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/asset"
+            app:layout_constraintTop_toBottomOf="@+id/capital"
+            tools:text="자산총계" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title5"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/all_16dp"
+            android:text="@string/all_sales"
+            app:layout_constraintBottom_toTopOf="@+id/title6"
+            app:layout_constraintEnd_toEndOf="@id/title1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title4" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/sales"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/all_16dp"
+            android:text="@{statement.sales}"
+            app:layout_constraintBottom_toTopOf="@+id/opIncome"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/asset"
+            app:layout_constraintTop_toBottomOf="@+id/totalCapital"
+            tools:text="자산총계" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title6"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/all_16dp"
+            android:text="@string/all_opearting_income"
+            app:layout_constraintBottom_toTopOf="@+id/title7"
+            app:layout_constraintEnd_toEndOf="@id/title1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title5" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/opIncome"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/all_16dp"
+            android:text="@{statement.opIncome}"
+            app:layout_constraintBottom_toTopOf="@+id/netIncome"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/asset"
+            app:layout_constraintTop_toBottomOf="@+id/sales"
+            tools:text="자산총계" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title7"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/all_net_income"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/title1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title6" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/netIncome"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{statement.netIncome}"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/asset"
+            app:layout_constraintTop_toBottomOf="@+id/opIncome"
+            tools:text="자산총계" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

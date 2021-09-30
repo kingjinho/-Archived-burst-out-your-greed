@@ -1,0 +1,83 @@
+<resources>
+    <string name="app_name">StockMarketTest</string>
+    <string name="all_money_unit_1000bil">시총: %d(조)</string>
+    <string name="all_money_unit_mil">시총: %s(백만원)</string>
+    <string name="all_weight">비중: %s%%</string>
+    <string name="all_shares_own">보유: %s주</string>
+    <string name="all_transaction_in_volume">거래량: %s주</string>
+    <string name="all_block_deal_transaction_in_volume">블록딜: %s주</string>
+    <string name="all_transaction_in_amount">거래대금: %s원</string>
+    <string name="all_total_shares">주식수: %s주</string>
+    <string name="all_turnover_ratio">회전율: %s%%</string>
+    <string name="all_loading_data">조회중!</string>
+    <string name="all_retry">재시도</string>
+    <string name="all_unit_dollar_per_ton">단위($/톤)</string>
+    <string name="all_type">종류</string>
+    <string name="all_price">가격</string>
+    <string name="all_volume">거래량</string>
+    <string name="all_see_more">더보기</string>
+    <string name="all_stock_opening_price">시가: %s(원)</string>
+    <string name="all_stock_high_price">고가: %s(원)</string>
+    <string name="all_stock_low_price">저가: %s(원)</string>
+    <string name="all_stock_year_high_price">52주 최고가: %s(원)</string>
+    <string name="all_stock_year_low_price">52주 최저가: %s(원)</string>
+    <string name="all_stock_foreigner_ratio">외국인 비율: %s%%</string>
+
+    <string name="stock_detail_basic_info">기본정보</string>
+    <string name="stock_detail_closing_price_quotation">종가</string>
+    <string name="stock_detail_volume_quotation">거래량</string>
+    <string name="stock_detail_amount_quotation">거래대금</string>
+    <string name="stock_detail_market_cap_quotation">시총</string>
+    <string name="stock_detail_financial_statement">재무제표</string>
+
+    <string name="bottom_nav_home">홈</string>
+    <string name="bottom_nav_search">검색</string>
+
+    <string name="msg_error">Error!!!!</string>
+
+    <string name="shared_pref_last_update">last_update</string>
+
+    <string name="delay_20min">20분 지연 정보</string>
+
+    <string name="main_up_down_top_50">주가등락률 상-하위 50종목</string>
+    <string name="main_top_50_by_transaction">거래 상위 50종목</string>
+    <string name="main_top_50_by_market_cap">시총 상위 50종목</string>
+    <string name="main_upper_lower_limit">상, 하한가 종목</string>
+    <string name="main_top_50_by_turnover">회전율 상위 50종목</string>
+    <string name="main_top_50_by_foreigner">외국인 보유 상위 50종목</string>
+    <string name="main_block_deal">전일 대량매매 종목</string>
+    <string name="main_bdi_index">BDI 지수</string>
+    <string name="main_oil_price">국제유가</string>
+    <string name="main_grain_price">곡물가격</string>
+
+    <string name="toast_data_empty">조회된 데이터가 없습니다</string>
+
+    <string name="btn_retry">재시도</string>
+
+    <string name="fragment_splash_start_soon">앱이 곧 시작됩니다!</string>
+
+    <string name="all_corn">옥수수</string>
+    <string name="all_soy_bean">콩</string>
+    <string name="all_wheat">밀</string>
+    <string name="all_unit_dollar_per_barrel">단위($/배럴)</string>
+    <string name="all_wti">WTI</string>
+    <string name="all_brent">BRENT</string>
+    <string name="all_dubai">DUBAI</string>
+    <string name="all_index">지수</string>
+    <string name="all_bdi">BDI</string>
+    <string name="all_bci">BCI</string>
+    <string name="all_bpi">BPI</string>
+    <string name="all_bsi">BSI</string>
+    <string name="all_bhsi">BHSI</string>
+    <string name="all_total_asset">자산총계</string>
+    <string name="all_total_debt">부채총계</string>
+    <string name="all_capital">자본금</string>
+    <string name="all_total_capital">자본총계</string>
+    <string name="all_sales">매출액(수익)</string>
+    <string name="all_opearting_income">영업이익</string>
+    <string name="all_net_income">당기순이익</string>
+
+
+
+
+</resources>

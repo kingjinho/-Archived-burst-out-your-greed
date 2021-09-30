@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav"
+    app:startDestination="@id/splash">
+
+    <fragment
+        android:id="@+id/splash"
+        android:name="com.projectseoul.stockmarkettest.screens.FragmentSplash"
+        android:label="FragmentSplash" >
+        <action
+            android:id="@+id/splash_to_main"
+            app:destination="@id/main"
+            app:popUpTo="@+id/splash"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/main"
+        android:name="com.projectseoul.stockmarkettest.screens.FragmentMain"
+        android:label="FragmentMain" >
+        <action
+            android:id="@+id/mainToSearch"
+            app:destination="@id/search" />
+        <action
+            android:id="@+id/main_to_detail"
+            app:destination="@id/detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/search"
+        android:name="com.projectseoul.stockmarkettest.screens.FragmentSearch"
+        android:label="FragmentSearch" />
+    <fragment
+        android:id="@+id/detail"
+        android:name="com.projectseoul.stockmarkettest.screens.FragmentStockDetail"
+        android:label="FragmentStockDetail">
+
+        <argument android:name="stockCode"
+            app:argType="string"
+            android:defaultValue="null"/>
+
+    </fragment>
+</navigation>

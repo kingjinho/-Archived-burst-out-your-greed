@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#000000</color>
+    <color name="primaryVariant">#14213D</color>
+    <color name="onVariant">#FABB55</color>
+    <color name="secondary">#E5E5E5</color>
+    <color name="secondaryVariant">#FFFFFF</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="decreasing">#f44336</color>
+    <color name="increasing">#087f23</color>
+
+    <color name="grey">#707070</color>
+
+    <color name="bottom_nav_checked">@color/white</color>
+    <color name="bottom_nav_unchecked">@color/grey</color>
+
+</resources>

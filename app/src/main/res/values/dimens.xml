@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="all_8dp">8dp</dimen>
+    <dimen name="all_16dp">16dp</dimen>
+    <dimen name="all_32dp">32dp</dimen>
+    <dimen name="all_48dp">48dp</dimen>
+    <dimen name="all_0dp">0dp</dimen>
+    <dimen name="all_56dp">56dp</dimen>
+    <dimen name="all_4dp">4dp</dimen>
+    <dimen name="all_200dp">200dp</dimen>
+    <dimen name="all_240dp">240dp</dimen>
+    <dimen name="all_300dp">300dp</dimen>
+</resources>

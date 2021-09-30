@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="grain"
+            type="com.projectseoul.stockmarkettest.models.Grain" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="@dimen/all_300dp"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/all_16dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/date"
+            style="@style/TextAppearance.AppCompat.Headline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/unit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="2020.01.01" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/all_16dp"
+            android:text="@string/all_unit_dollar_per_ton"
+            app:layout_constraintBottom_toBottomOf="@+id/date"
+            app:layout_constraintStart_toEndOf="@+id/date" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/type"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/all_type"
+            app:layout_constraintEnd_toStartOf="@+id/price"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/price"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/all_price"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/volume"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintStart_toEndOf="@+id/type"
+            app:layout_constraintTop_toBottomOf="@+id/date" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/volume"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/all_volume"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintStart_toEndOf="@+id/price"
+            app:layout_constraintTop_toBottomOf="@+id/date" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/corn"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_16dp"
+            android:text="@string/all_corn"
+            app:layout_constraintEnd_toStartOf="@+id/price"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/type" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/cornPrice"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_16dp"
+            android:text="@{grain.cornPrice}"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/cornVolume"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintStart_toEndOf="@+id/type"
+            app:layout_constraintTop_toBottomOf="@+id/price"
+            tools:text="123423" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/cornVolume"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_16dp"
+            android:text="@{grain.cornVolume}"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintStart_toEndOf="@+id/price"
+            app:layout_constraintTop_toBottomOf="@+id/volume"
+            tools:text="12341234533" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/wheat"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_8dp"
+            android:text="@string/all_wheat"
+            app:layout_constraintEnd_toStartOf="@+id/price"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/corn" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/wheatPrice"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_8dp"
+            android:text="@{grain.wheatPrice}"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/cornVolume"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintStart_toEndOf="@+id/type"
+            app:layout_constraintTop_toBottomOf="@+id/cornPrice"
+            tools:text="123423" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/wheatVolume"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_8dp"
+            android:text="@{grain.wheatVolume}"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintStart_toEndOf="@+id/price"
+            app:layout_constraintTop_toBottomOf="@+id/cornVolume"
+            tools:text="12341234533" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/soyBean"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_8dp"
+            android:text="@string/all_soy_bean"
+            app:layout_constraintEnd_toStartOf="@+id/price"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wheat" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/soyBeanPrice"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_8dp"
+            android:text="@{grain.soyBeanPrice}"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/cornVolume"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintStart_toEndOf="@+id/type"
+            app:layout_constraintTop_toBottomOf="@+id/wheatPrice"
+            tools:text="123423" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/soyBeanVolume"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_8dp"
+            android:text="@{grain.soyBeanVolume}"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintStart_toEndOf="@+id/price"
+            app:layout_constraintTop_toBottomOf="@+id/wheatVolume"
+            tools:text="12341234533" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

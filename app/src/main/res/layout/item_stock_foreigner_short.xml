@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="stock"
+            type="com.projectseoul.stockmarkettest.models.StockByForeigner" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/bg_rounded_corner"
+        android:layout_width="@dimen/all_300dp"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/all_16dp"
+        android:paddingVertical="@dimen/all_16dp">
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/market"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stock.market}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="KOSPI" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/name"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="@{stock.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/market"
+            tools:text="SM LIFE DESIGN" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/price"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_8dp"
+            android:text="@{stock.closing}"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            tools:text="12,341,23" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/diff"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:diff="@{stock.diff}"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/ratio"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/price"
+            android:layout_marginTop="@dimen/all_8dp"
+            tools:text="+600" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/ratio"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:diffRatio="@{stock.diffInRatio}"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/diff"
+            app:layout_constraintTop_toBottomOf="@+id/price"
+            android:layout_marginTop="@dimen/all_8dp"
+            tools:text="1.56%" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/shares"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            sharesOwn="@{stock.sharesOwned}"
+            app:layout_constraintEnd_toStartOf="@+id/maxShares"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/diff"
+            android:layout_marginTop="@dimen/all_8dp"
+            tools:text="보유: 60주" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/maxShares"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            weight="@{stock.sharesOwnedInRatio}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/shares"
+            app:layout_constraintTop_toBottomOf="@+id/diff"
+            android:layout_marginTop="@dimen/all_8dp"
+            tools:text="비중: 20%" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

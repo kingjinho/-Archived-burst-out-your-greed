@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="info"
+            type="com.projectseoul.stockmarkettest.models.StockBaseInfo" />
+
+        <import type="com.projectseoul.stockmarkettest.models.EUnit" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/all_16dp"
+        android:background="@drawable/bg_rounded_corner">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/name"
+            style="@style/TextAppearance.MaterialComponents.Headline4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{info.name}"
+            app:layout_constraintEnd_toStartOf="@+id/market"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="S-OIL" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/market"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{info.market}"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@id/name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/name"
+            tools:text="S-OIL" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/current"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_32dp"
+            android:layout_marginEnd="@dimen/all_16dp"
+            android:text="@{info.current}"
+            app:layout_constraintEnd_toStartOf="@+id/diff"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            tools:text="155,000" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/diff"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            diff="@{info.diff}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_32dp"
+            app:layout_constraintEnd_toStartOf="@+id/diffRatio"
+            app:layout_constraintStart_toEndOf="@+id/current"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            tools:text="5,200" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/diffRatio"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            diffRatio="@{info.diffInRatio}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/all_16dp"
+            android:layout_marginTop="@dimen/all_32dp"
+            app:layout_constraintStart_toEndOf="@+id/diff"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            tools:text="+5.2" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/volume"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            volume="@{info.volume}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/current"
+            tools:text="거래량(주) :1111234" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/amount"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            amount="@{info.amount}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/volume"
+            tools:text="거래대금(원): 9999999999999999" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/marketCap"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            marketCap="@{info.marketCap}"
+            unit="@{EUnit.MIL}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/amount"
+            tools:text="시가총액(백만원): 12,947,021" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/opening"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            opening="@{info.opening}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_16dp"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/marketCap"
+            tools:text="시가: ㅁㄴㅇㄻㄴㅇㄹ" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/high"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            high="@{info.high}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_16dp"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/opening"
+            tools:text="고가: ㅁㄴㅇㄻㄴㅇㄹ" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/low"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            low="@{info.low}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_16dp"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/high"
+            tools:text="저가: ㄴㅇㄻㄴㅇㄻㅁ" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/yearLow"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            yearLow="@{info.week52Low}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_16dp"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/low"
+            tools:text="52주 최고: ㄴㅇㄻㄴㅇㄻㅁ" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/yearHigh"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            yearHigh="@{info.week52High}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_16dp"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/yearLow"
+            tools:text="52주 최저: ㄴㅇㄻㄴㅇㄻㅁ" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/foreigner"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            foreignerRatio="@{info.foreignerRatio}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_16dp"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/yearHigh"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="외국인비율: 78.25%" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
