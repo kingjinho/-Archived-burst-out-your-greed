@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">StockMarketTest</string>
+    <string name="app_name">욕망</string>
     <string name="all_money_unit_1000bil">시총: %d(조)</string>
     <string name="all_money_unit_mil">시총: %s(백만원)</string>
     <string name="all_weight">비중: %s%%</string>
