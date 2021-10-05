@@ -7,7 +7,7 @@ import com.projectseoul.stockmarkettest.recyclerview.BaseViewHolder
 /**
  * Created by KING JINHO on 9/27/2021
  */
-class GrainViewHolder(
+class GrainVH(
     private val binding: ItemGrainBinding,
     private val action: () -> Unit
 ): BaseViewHolder(binding) {
