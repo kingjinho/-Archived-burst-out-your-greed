@@ -16,7 +16,7 @@ import java.lang.IllegalArgumentException
 /**
  * Created by KING JINHO on 9/15/2021
  */
-class HeaderWithItemsViewHolder(
+class HeaderWithItemsVH(
     private val binding: ItemHeaderWithRecyclerviewBinding,
     private val seeMoreClickListener: HeaderWithItemsListener?,
     private val itemClickListener: ItemClickListener?,
@@ -264,6 +264,18 @@ class HeaderWithItemsViewHolder(
                         oldItem: StockFinancialStatement,
                         newItem: StockFinancialStatement
                     ) = oldItem.equals(newItem)
+                })
+            is HeaderWithMonthlyTrading -> ItemRecyclerViewAdapter(item.items,
+                object : DiffUtil.ItemCallback<MonthlyTrading>() {
+                    override fun areItemsTheSame(
+                        oldItem: MonthlyTrading,
+                        newItem: MonthlyTrading
+                    ) = oldItem == newItem
+
+                    override fun areContentsTheSame(
+                        oldItem: MonthlyTrading,
+                        newItem: MonthlyTrading
+                    ) = oldItem.period == newItem.period
                 })
             else -> throw IllegalArgumentException("Must Match!")
         }
