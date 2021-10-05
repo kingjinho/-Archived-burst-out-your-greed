@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="trading"
+            type="com.projectseoul.stockmarkettest.models.MonthlyTrading" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rounded_corner"
+        android:padding="@dimen/all_16dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/period"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{trading.period}"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="기간" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/surplus"
+            style="@style/TextAppearance.AppCompat.Medium"
+            tradeSurplus="@{trading.surplus}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/period"
+            tools:text="무역수지: xxx.xxx" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/exportVolume"
+            style="@style/TextAppearance.AppCompat.Medium"
+            exportVolume="@{trading.exportVolume}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/surplus"
+            tools:text="수출건수:xxx,xxx" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/importVolume"
+            style="@style/TextAppearance.AppCompat.Medium"
+            importVolume="@{trading.importVolume}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/exportVolume"
+            tools:text="수입건수:xxx,xxx" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/exportAmount"
+            style="@style/TextAppearance.AppCompat.Medium"
+            exportAmount="@{trading.exportAmount}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/importVolume"
+            tools:text="수입건수:xxx,xxx" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/importAmount"
+            style="@style/TextAppearance.AppCompat.Medium"
+            importAmount="@{trading.importAmount}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/exportAmount"
+            tools:text="수입건수:xxx,xxx" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
