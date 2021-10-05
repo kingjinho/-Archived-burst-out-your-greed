@@ -7,7 +7,7 @@ import com.projectseoul.stockmarkettest.recyclerview.BaseViewHolder
 /**
  * Created by KING JINHO on 9/27/2021
  */
-class StockBlockDealViewHolder(
+class StockBlockDealVH(
     private val binding: ItemStockBlockDealBinding,
     private val action: () -> Unit
 ) : BaseViewHolder(binding) {

@@ -1,24 +1,26 @@
 package com.projectseoul.stockmarkettest.recyclerview.viewholders
 
-import com.projectseoul.stockmarkettest.databinding.ItemStockFluctuationShortBinding
-import com.projectseoul.stockmarkettest.models.StockByFluctuation
+import com.projectseoul.stockmarkettest.databinding.ItemStockTransactionShortBinding
+import com.projectseoul.stockmarkettest.models.StockByTransaction
 import com.projectseoul.stockmarkettest.recyclerview.BaseViewHolder
 import com.projectseoul.stockmarkettest.recyclerview.ItemClickListener
 
 /**
  * Created by KING JINHO on 9/18/2021
  */
-class StockFluctuationShortViewHolder(
-    private val binding: ItemStockFluctuationShortBinding,
+class StockTransactionShortVH(
+    private val binding: ItemStockTransactionShortBinding,
     private val listener: ItemClickListener
 ) : BaseViewHolder(binding) {
 
     override fun bind(item: Any) {
         binding.run {
-            stock = item as StockByFluctuation
+            stock = item as StockByTransaction
             executePendingBindings()
         }
 
-        itemView.setOnClickListener { listener.onClick(item) }
+        itemView.setOnClickListener {
+            listener.onClick(item)
+        }
     }
 }

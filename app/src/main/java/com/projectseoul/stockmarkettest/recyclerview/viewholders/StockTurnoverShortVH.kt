@@ -8,7 +8,7 @@ import com.projectseoul.stockmarkettest.recyclerview.ItemClickListener
 /**
  * Created by KING JINHO on 9/27/2021
  */
-class StockTurnoverShortViewHolder(
+class StockTurnoverShortVH(
     private val binding: ItemStockTurnoverShortBinding,
     private val listener: ItemClickListener
 ): BaseViewHolder(binding) {

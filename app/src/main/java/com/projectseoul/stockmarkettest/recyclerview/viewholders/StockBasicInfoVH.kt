@@ -7,7 +7,7 @@ import com.projectseoul.stockmarkettest.recyclerview.BaseViewHolder
 /**
  * Created by KING JINHO on 9/29/2021
  */
-class StockBasicInfoViewHolder(
+class StockBasicInfoVH(
     private val binding: ItemStockBaseInformationBinding
 ) : BaseViewHolder(binding) {
     override fun bind(item: Any) {

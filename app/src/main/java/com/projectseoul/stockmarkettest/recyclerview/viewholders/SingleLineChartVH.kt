@@ -15,7 +15,7 @@ import java.util.ArrayList
 /**
  * Created by KING JINHO on 9/29/2021
  */
-class SingleLineChartViewHolder(
+class SingleLineChartVH(
     private val binding: ItemStockQuotationBinding
 ) : BaseViewHolder(binding) {
 

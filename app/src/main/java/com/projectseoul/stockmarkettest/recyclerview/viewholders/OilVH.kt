@@ -6,7 +6,7 @@ import com.projectseoul.stockmarkettest.recyclerview.BaseViewHolder
 /**
  * Created by KING JINHO on 9/27/2021
  */
-class OilViewHolder(
+class OilVH(
     private val binding: ItemOilBinding,
     private val action: () -> Unit
 ) : BaseViewHolder(binding){

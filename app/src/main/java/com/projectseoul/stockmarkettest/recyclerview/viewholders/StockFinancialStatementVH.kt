@@ -7,7 +7,7 @@ import com.projectseoul.stockmarkettest.recyclerview.BaseViewHolder
 /**
  * Created by KING JINHO on 9/29/2021
  */
-class StockFinancialStatementViewHolder(
+class StockFinancialStatementVH(
     private val binding: ItemFinancialStatementBinding
 ): BaseViewHolder(binding) {
 

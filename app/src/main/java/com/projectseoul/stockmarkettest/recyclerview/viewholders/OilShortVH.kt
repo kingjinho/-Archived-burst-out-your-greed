@@ -8,7 +8,7 @@ import com.projectseoul.stockmarkettest.recyclerview.ItemClickListener
 /**
  * Created by KING JINHO on 9/27/2021
  */
-class OilShortViewHolder(
+class OilShortVH(
     private val binding: ItemOilShortBinding,
 ) : BaseViewHolder(binding) {
     override fun bind(item: Any) {
