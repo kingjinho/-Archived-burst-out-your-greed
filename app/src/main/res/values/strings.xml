@@ -23,6 +23,13 @@
     <string name="all_stock_year_low_price">52주 최저가: %s(원)</string>
     <string name="all_stock_foreigner_ratio">외국인 비율: %s%%</string>
 
+    <string name="monthly_trading_surplus">무역수지: %s(1,000USD)</string>
+    <string name="monthly_trading_export_volume">수출건수: %s건</string>
+    <string name="monthly_trading_export_amount">수출금액: %s(1,000USD)</string>
+    <string name="monthly_trading_import_volume">수입건수: %s건</string>
+    <string name="monthly_trading_import_amount">수입금액: %s(1,000USD)</string>
+
+
     <string name="stock_detail_basic_info">기본정보</string>
     <string name="stock_detail_closing_price_quotation">종가</string>
     <string name="stock_detail_volume_quotation">거래량</string>
@@ -49,6 +56,8 @@
     <string name="main_bdi_index">BDI 지수</string>
     <string name="main_oil_price">국제유가</string>
     <string name="main_grain_price">곡물가격</string>
+    <string name="main_monthly_trading">월별 수출입통계</string>
+    <string name="main_yearly_trading">년도별 수출입통계</string>
 
     <string name="toast_data_empty">조회된 데이터가 없습니다</string>
 
