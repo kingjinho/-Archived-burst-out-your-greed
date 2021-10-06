@@ -3,10 +3,10 @@ package com.projectseoul.stockmarkettest.recyclerview
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.projectseoul.stockmarkettest.databinding.*
-import com.projectseoul.stockmarkettest.models.EFrom
 import com.projectseoul.stockmarkettest.recyclerview.viewholders.*
 import com.projectseoul.stockmarkettest.utils.Const.LAYOUT_BALTIC_INDICES_SHORT
 import com.projectseoul.stockmarkettest.utils.Const.LAYOUT_GRAIN_SHORT
+import com.projectseoul.stockmarkettest.utils.Const.LAYOUT_MONTHLY_TRADING
 import com.projectseoul.stockmarkettest.utils.Const.LAYOUT_OIL_SHORT
 import com.projectseoul.stockmarkettest.utils.Const.LAYOUT_STOCK_BASIC_INFO
 import com.projectseoul.stockmarkettest.utils.Const.LAYOUT_STOCK_BLOCK_DEAL_SHORT
@@ -33,7 +33,7 @@ class ItemViewHolderFactory {
         ): BaseViewHolder {
             return when (viewType) {
                 LAYOUT_STOCK_FLUCTUATION_SHORT -> {
-                    StockFluctuationShortViewHolder(
+                    StockFluctuationShortVH(
                         ItemStockFluctuationShortBinding.inflate(
                             LayoutInflater.from(parent.context),
                             parent,
@@ -42,7 +42,7 @@ class ItemViewHolderFactory {
                     )
                 }
                 LAYOUT_STOCK_TRANSACTION_SHORT -> {
-                    StockTransactionShortViewHolder(
+                    StockTransactionShortVH(
                         ItemStockTransactionShortBinding.inflate(
                             LayoutInflater.from(parent.context),
                             parent,
@@ -51,7 +51,7 @@ class ItemViewHolderFactory {
                     )
                 }
                 LAYOUT_STOCK_MARKET_CAP_SHORT -> {
-                    StockMarketCapShortViewHolder(
+                    StockMarketCapShortVH(
                         ItemStockMarketCapShortBinding.inflate(
                             LayoutInflater.from(parent.context),
                             parent,
@@ -60,7 +60,7 @@ class ItemViewHolderFactory {
                     )
                 }
                 LAYOUT_STOCK_UPPER_LOWER_LIMIT_SHORT -> {
-                    StockUpperLowerShortViewHolder(
+                    StockUpperLowerShortVH(
                         ItemStockUpperLowerShortBinding.inflate(
                             LayoutInflater.from(parent.context),
                             parent,
@@ -69,7 +69,7 @@ class ItemViewHolderFactory {
                     )
                 }
                 LAYOUT_STOCK_FOREIGNER_SHORT -> {
-                    StockForeignerShortViewHolder(
+                    StockForeignerShortVH(
                         ItemStockForeignerShortBinding.inflate(
                             LayoutInflater.from(parent.context),
                             parent,
@@ -78,7 +78,7 @@ class ItemViewHolderFactory {
                     )
                 }
                 LAYOUT_STOCK_TURNOVER_SHORT -> {
-                    StockTurnoverShortViewHolder(
+                    StockTurnoverShortVH(
                         ItemStockTurnoverShortBinding.inflate(
                             LayoutInflater.from(parent.context),
                             parent,
@@ -87,7 +87,7 @@ class ItemViewHolderFactory {
                     )
                 }
                 LAYOUT_STOCK_BLOCK_DEAL_SHORT -> {
-                    StockBlockDealShortViewHolder(
+                    StockBlockDealShortVH(
                         ItemStockBlockDealShortBinding.inflate(
                             LayoutInflater.from(parent.context),
                             parent,
@@ -96,7 +96,7 @@ class ItemViewHolderFactory {
                     )
                 }
                 LAYOUT_GRAIN_SHORT -> {
-                    GrainShortViewHolder(
+                    GrainShortVH(
                         ItemGrainShortBinding.inflate(
                             LayoutInflater.from(parent.context),
                             parent,
@@ -105,7 +105,7 @@ class ItemViewHolderFactory {
                     )
                 }
                 LAYOUT_OIL_SHORT -> {
-                    OilShortViewHolder(
+                    OilShortVH(
                         ItemOilShortBinding.inflate(
                             LayoutInflater.from(parent.context),
                             parent,
@@ -114,7 +114,7 @@ class ItemViewHolderFactory {
                     )
                 }
                 LAYOUT_BALTIC_INDICES_SHORT -> {
-                    BalticIndicesShortViewHolder(
+                    BalticIndicesShortVH(
                         ItemBalticIndexShortBinding.inflate(
                             LayoutInflater.from(parent.context),
                             parent,
@@ -123,7 +123,7 @@ class ItemViewHolderFactory {
                     )
                 }
                 LAYOUT_STOCK_BASIC_INFO -> {
-                    StockBasicInfoViewHolder(
+                    StockBasicInfoVH(
                         ItemStockBaseInformationBinding.inflate(
                             LayoutInflater.from(parent.context),
                             parent,
@@ -132,7 +132,7 @@ class ItemViewHolderFactory {
                     )
                 }
                 LAYOUT_STOCK_FINANCIAL_STATEMENT -> {
-                    StockFinancialStatementViewHolder(
+                    StockFinancialStatementVH(
                         ItemFinancialStatementBinding.inflate(
                             LayoutInflater.from(parent.context),
                             parent,
@@ -141,8 +141,17 @@ class ItemViewHolderFactory {
                     )
                 }
                 LAYOUT_STOCK_SINGLE_LINE_CHART -> {
-                    SingleLineChartViewHolder(
+                    SingleLineChartVH(
                         ItemStockQuotationBinding.inflate(
+                            LayoutInflater.from(parent.context),
+                            parent,
+                            false
+                        )
+                    )
+                }
+                LAYOUT_MONTHLY_TRADING -> {
+                    MonthlyTradingVH(
+                        ItemMonthlyTradingBinding.inflate(
                             LayoutInflater.from(parent.context),
                             parent,
                             false
