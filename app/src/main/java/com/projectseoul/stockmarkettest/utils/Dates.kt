@@ -1,5 +1,6 @@
 package com.projectseoul.stockmarkettest.utils
 
+import java.text.SimpleDateFormat
 import java.time.DayOfWeek
 import java.time.ZoneId
 import java.time.ZonedDateTime
@@ -9,13 +10,14 @@ import java.time.format.DateTimeFormatter
  * Created by KING JINHO on 9/30/2021
  */
 object Dates {
+    private val today: ZonedDateTime = ZonedDateTime.now(ZoneId.of(Const.TIME_ZONE_SEOUL))
+
     val mostCurrentDate: String by lazy {
         /**
          * weekday : Friday
          * 00:00 ~ 09:20 a day before
          * 09:20 ~ 23:59 today
          */
-        val today = ZonedDateTime.now(ZoneId.of(Const.TIME_ZONE_SEOUL))
         val currentDate = when (today.dayOfWeek) {
             DayOfWeek.SATURDAY -> today.minusDays(1)
             DayOfWeek.SUNDAY -> today.minusDays(2)
@@ -28,7 +30,6 @@ object Dates {
     }
 
     val weekAgo: String by lazy {
-        val today = ZonedDateTime.now(ZoneId.of(Const.TIME_ZONE_SEOUL))
         val weekAgo = when (today.dayOfWeek) {
             DayOfWeek.SATURDAY -> today.minusDays(8)
             DayOfWeek.SUNDAY -> today.minusDays(9)
@@ -38,8 +39,14 @@ object Dates {
     }
 
     val yearAgo: String by lazy {
-        val today = ZonedDateTime.now(ZoneId.of(Const.TIME_ZONE_SEOUL))
         val yearAgo = today.minusYears(1)
         yearAgo.format(DateTimeFormatter.ofPattern(Const.DATE_FORMAT))
+    }
+
+    val currentYear: String by lazy {
+        "${today.year}"
+    }
+    val currentMonth: String by lazy {
+        "$today.monthValue"
     }
 }
