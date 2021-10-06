@@ -39,7 +39,7 @@ class HeaderWithItemsAdapter(
         val manager = LinearLayoutManager(parent.context, orientation, false)
             .apply {
                 isItemPrefetchEnabled = true
-                initialPrefetchItemCount = 3
+                initialPrefetchItemCount = 5
             }
         viewHolder.setLayoutManager(manager)
         return viewHolder
