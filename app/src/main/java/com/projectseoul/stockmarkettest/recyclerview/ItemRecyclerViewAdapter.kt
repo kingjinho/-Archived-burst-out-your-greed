@@ -43,6 +43,8 @@ class ItemRecyclerViewAdapter<T : Any>(
                 Const.LAYOUT_STOCK_BASIC_INFO
             is StockFinancialStatement ->
                 Const.LAYOUT_STOCK_FINANCIAL_STATEMENT
+            is MonthlyTrading ->
+                Const.LAYOUT_MONTHLY_TRADING
             is List<*> ->
                 Const.LAYOUT_STOCK_SINGLE_LINE_CHART
             else -> {
