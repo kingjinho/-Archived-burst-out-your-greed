@@ -38,7 +38,6 @@ class FragmentMain : BaseBottomFragment() {
     var job: Job? = null
 
 
-
     private val adapter by lazy {
         HeaderWithItemsAdapter(
             object : DiffUtil.ItemCallback<HeaderWithItems>() {
@@ -138,10 +137,31 @@ class FragmentMain : BaseBottomFragment() {
                     listItems.add(it)
                 }
             }
-            viewModel.blockDeal().collect { listItems.add(it) }
-            viewModel.cornWheatSoyBean().collect { listItems.add(it) }
-            viewModel.oil().collect { listItems.add(it) }
-            viewModel.indices().collect { listItems.add(it) }
+            viewModel.blockDeal().collect {
+                if (it.items.isNotEmpty()) {
+                    listItems.add(it)
+                }
+            }
+            viewModel.cornWheatSoyBean().collect {
+                if (it.items.isNotEmpty()) {
+                    listItems.add(it)
+                }
+            }
+            viewModel.oil().collect {
+                if (it.items.isNotEmpty()) {
+                    listItems.add(it)
+                }
+            }
+            viewModel.indices().collect {
+                if (it.items.isNotEmpty()) {
+                    listItems.add(it)
+                }
+            }
+            viewModel.monthlyTrading().collect {
+                if (it.items.isNotEmpty()) {
+                    listItems.add(it)
+                }
+            }
 
             adapter.submitList(listItems)
             binding.list.isVisible = listItems.isNotEmpty()
