@@ -6,6 +6,7 @@ import com.projectseoul.stockmarkettest.extensions.executeMultiple
 import com.projectseoul.stockmarkettest.extensions.getBodyExt
 import com.projectseoul.stockmarkettest.models.*
 import com.projectseoul.stockmarkettest.utils.Const
+import com.projectseoul.stockmarkettest.utils.Dates
 import com.projectseoul.stockmarkettest.utils.Dates.mostCurrentDate
 import com.projectseoul.stockmarkettest.utils.Dates.weekAgo
 import kotlinx.coroutines.Dispatchers
@@ -28,9 +29,10 @@ class FragmentMainRepo(application: Application) : BaseRepo(application) {
     private var grains: List<Grain>? = null
     private var oil: List<CrudeOil>? = null
     private var indices: List<BDIIndex>? = null
+    private var monthlyTrading: List<MonthlyTrading>? = null
 
 
-    val top50ByFluctuation = flow {
+    val top50ByFluctuationFlow = flow {
         if (fluctuation.isNullOrEmpty()) {
             val asyncResult = executeMultiple(
                 listOf(
@@ -53,7 +55,7 @@ class FragmentMainRepo(application: Application) : BaseRepo(application) {
         emit(HeaderWithFluctuation(fluctuation!!))
     }.flowOn(Dispatchers.IO)
 
-    val top50ByTransaction = flow {
+    val top50ByTransactionFlow = flow {
         if (transaction.isNullOrEmpty()) {
 
             val asyncResult = execute {
@@ -66,7 +68,7 @@ class FragmentMainRepo(application: Application) : BaseRepo(application) {
         emit(HeaderWithTransaction(transaction!!))
     }
 
-    val top50ByMarketCap = flow {
+    val top50ByMarketCapFlow = flow {
         if (marketCap.isNullOrEmpty()) {
             val asyncResult = execute {
                 stockMarket.getTop50ByMarketCap(mostCurrentDate)
@@ -78,7 +80,7 @@ class FragmentMainRepo(application: Application) : BaseRepo(application) {
         emit(HeaderWithMarketCap(marketCap!!))
     }
 
-    val upperLowerLimit = flow {
+    val upperLowerLimitFlow = flow {
         if (upperLower.isNullOrEmpty()) {
             val asyncResult = executeMultiple(
                 listOf(
@@ -99,7 +101,7 @@ class FragmentMainRepo(application: Application) : BaseRepo(application) {
         emit(HeaderWithUpperLowerLimit(upperLower!!))
     }
 
-    val top50ByForeigner = flow {
+    val top50ByForeignerFlow = flow {
         if (foreigner.isNullOrEmpty()) {
             val asyncResult = executeMultiple(
                 listOf(
@@ -121,7 +123,7 @@ class FragmentMainRepo(application: Application) : BaseRepo(application) {
         emit(HeaderWithForeigner(foreigner!!))
     }
 
-    val top50ByTurnover = flow {
+    val top50ByTurnoverFlow = flow {
         if (turnover.isNullOrEmpty()) {
             val asyncResult = execute {
                 stockMarket.getTop50ByTurnover(mostCurrentDate)
@@ -145,7 +147,7 @@ class FragmentMainRepo(application: Application) : BaseRepo(application) {
         emit(HeaderWithBlockDeal(blockDeal!!))
     }
 
-    val cornWheatSoyBean = flow {
+    val cornWheatSoyBeanFlow = flow {
         if (grains.isNullOrEmpty()) {
             val asyncResult = executeMultiple(
                 listOf(
@@ -190,7 +192,7 @@ class FragmentMainRepo(application: Application) : BaseRepo(application) {
         emit(HeaderWithGrains(grains!!))
     }
 
-    val crudeOil = flow {
+    val crudeOilFlow = flow {
         if (oil.isNullOrEmpty()) {
             val asyncResult = execute {
                 commodity.getCrudeOil(weekAgo, mostCurrentDate)
@@ -209,7 +211,7 @@ class FragmentMainRepo(application: Application) : BaseRepo(application) {
         emit(HeaderWithOil(oil!!))
     }
 
-    val balticIndex = flow {
+    val balticIndexFlow = flow {
         if (indices.isNullOrEmpty()) {
             val asyncResult = execute {
                 commodity.getBDIs(weekAgo, mostCurrentDate)
@@ -227,5 +229,20 @@ class FragmentMainRepo(application: Application) : BaseRepo(application) {
             indices = result ?: emptyList()
         }
         emit(HeaderWithBalticIndices(indices!!))
+    }
+
+    val importExportFlow = flow {
+        if(monthlyTrading.isNullOrEmpty()) {
+            val asyncResult = execute {
+                importExport.getMonthlyTradingData(
+                    "${Dates.currentYear}01", "${Dates.currentYear}${Dates.currentMonth}"
+                )
+            }
+
+            val result = asyncResult?.getBodyExt { it?.items }
+            monthlyTrading = result?.sortedByDescending { it.period } ?: emptyList()
+        }
+
+        emit(HeaderWithMonthlyTrading(monthlyTrading!!))
     }
 }
