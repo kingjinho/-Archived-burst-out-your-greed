@@ -21,5 +21,6 @@ enum class EFrom {
     BASIC_INFO,
     QUOTATION,
     FINANCIAL_STATEMENT,
-    LINE_CHART
+    LINE_CHART,
+    MONTHLY_TRADING
 }
