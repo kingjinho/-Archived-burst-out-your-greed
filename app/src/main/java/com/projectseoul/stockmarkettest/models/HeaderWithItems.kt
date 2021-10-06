@@ -64,3 +64,6 @@ data class HeaderWithSingleLineChart(
     val items: List<List<SingleLineChart>>
 ) : HeaderWithItems(titleRes, EFrom.LINE_CHART, false)
 
+data class HeaderWithMonthlyTrading(
+    val items: List<MonthlyTrading>
+) : HeaderWithItems(R.string.main_monthly_trading, EFrom.MONTHLY_TRADING, false)
