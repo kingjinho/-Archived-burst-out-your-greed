@@ -81,5 +81,31 @@
             android:layout_marginTop="@dimen/all_8dp"
             tools:text="1.56%" />
 
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/volume"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratio"
+            android:layout_marginTop="@dimen/all_8dp"
+            volume="@{stock.volume}"
+            tools:text="1.56%" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/amount"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/volume"
+            android:layout_marginTop="@dimen/all_8dp"
+            amount="@{stock.amount}"
+            tools:text="1.56%" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
