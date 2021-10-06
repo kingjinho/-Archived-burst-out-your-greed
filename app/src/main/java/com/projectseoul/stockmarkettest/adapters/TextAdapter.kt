@@ -100,6 +100,31 @@ fun foreignerRatio(view: MaterialTextView, value: String) {
     view.text = view.context.getString(R.string.all_stock_foreigner_ratio, value)
 }
 
+@BindingAdapter("tradeSurplus")
+fun tradeSurplus(view: MaterialTextView, value: String) {
+    view.text = view.context.getString(R.string.monthly_trading_surplus, value)
+}
+
+@BindingAdapter("exportVolume")
+fun exportVolume(view: MaterialTextView, value: String) {
+    view.text = view.context.getString(R.string.monthly_trading_export_volume, value)
+}
+
+@BindingAdapter("exportAmount")
+fun exportAmount(view: MaterialTextView, value: String) {
+    view.text = view.context.getString(R.string.monthly_trading_export_amount, value)
+}
+
+@BindingAdapter("importVolume")
+fun importVolume(view: MaterialTextView, value: String) {
+    view.text = view.context.getString(R.string.monthly_trading_import_volume, value)
+}
+
+@BindingAdapter("importAmount")
+fun importAmount(view: MaterialTextView, value: String) {
+    view.text = view.context.getString(R.string.monthly_trading_import_amount, value)
+}
+
 
 fun setTextColor(view: MaterialTextView, value: String) {
     view.setTextColor(
