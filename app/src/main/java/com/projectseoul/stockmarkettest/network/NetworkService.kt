@@ -18,6 +18,7 @@ private val moshi = Moshi.Builder()
     .addLast(KotlinJsonAdapterFactory())
     .add(DateAdapter())
     .add(CryptoCurrencyAdapter())
+    .add(MonthlyTradingAdapter())
     .build()
 
 private val logger = HttpLoggingInterceptor {
@@ -64,6 +65,12 @@ private val goldSilverRetrofit = Retrofit.Builder()
     .addConverterFactory(MoshiConverterFactory.create(moshi))
     .build()
 
+private val importExportRetrofit = Retrofit.Builder()
+    .client(client)
+    .baseUrl(BuildConfig.IMPORT_EXPORT_URL)
+    .addConverterFactory(MoshiConverterFactory.create(moshi))
+    .build()
+
 
 object NetworkService {
     val STOCK_MARKET_SERVICE: StockMarketService by lazy {
@@ -82,5 +89,9 @@ object NetworkService {
 
     val COMMODITY_SERVICE: CommodityService by lazy {
         commodityRetrofit.create(CommodityService::class.java)
+    }
+
+    val IMPORT_EXPORT_SERVICE : ImportExportService by lazy {
+        importExportRetrofit.create(ImportExportService::class.java)
     }
 }
