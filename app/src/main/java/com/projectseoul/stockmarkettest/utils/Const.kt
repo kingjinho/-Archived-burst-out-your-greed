@@ -28,6 +28,7 @@ object Const {
     const val PATH_STOCK_MARKET = "comm/bldAttendant/getJsonData.cmd"
     const val PATH_UPBIT_GET_ALL_TICKERS = "market/all"
 
+    const val PATH_IMPORT_EXPORT = "ets/hmpg/retrieveImexOvrlLst.do"
 
 
     const val PATH_CORN_WHEAT_SOYBEAN = "chart/main_chart/index/kind/{TYPE}/sdate/{SDATE}/edate/{EDATE}"
@@ -111,6 +112,12 @@ object Const {
     const val JSON_WK52_HGST_PRC = "WK52_HGST_PRC"
     const val JSON_WK52_LWST_PRC = "WK52_LWST_PRC"
     const val JSON_FORN_RTO = "FORN_RTO"
+    const val JSON_PERIOD_TITLE = "priodTitle"
+    const val JSON_EXPORT_COUNT = "expCnt"
+    const val JSON_EXPORT_USD_AMOUNT = "expUsdAmt"
+    const val JSON_IMPORT_COUNT = "impCnt"
+    const val JSON_IMPORT_USD_AMOUNT =  "impUsdAmt"
+    const val JSON_TRADE_SURPLUS = "cmtrBlncAmt"
 
     //network requests
     const val CRAWLING_KEY_BLD = "bld"
@@ -131,6 +138,14 @@ object Const {
     const val CRAWLING_KEY_STK_PRC_TP_CD = "stkprcTpCd"
     const val CRAWLING_KEY_FLUC_TP_CD = "flucTpCd"
     const val CRAWLING_KEY_SEC_GROUP_ID = "secugrpId"
+
+    const val CRAWLING_KEY_IS_ALL = "isAll"
+    const val CRAWLING_KEY_PAGE_INDEX = "pageIndex"
+    const val CRAWLING_KEY_PAGE_UNIT = "pageUnit"
+    const val CRAWLING_KEY_PRIOD_KIND = "priodKind"
+    const val CRAWLING_KEY_PRIOD_FR = "priodFr"
+    const val CRAWLING_KEY_PRIOD_TO = "priodTo"
+    const val CRAWLING_KEY_MENU_ID = "menuId"
 
 
     const val CRAWLING_COMPANY_VALUE1 = "dbms/MDC/STAT/standard/MDCSTAT01901"
@@ -154,6 +169,12 @@ object Const {
     const val CRAWLING_STOCK_BASE_INFO = "dbms/MDC/STAT/standard/MDCSTAT02101"
     const val CRAWLING_STOCK_QUOTATION_HISTORY = "dbms/MDC/STAT/standard/MDCSTAT01701"
     const val CRAWLING_STOCK_FINANCIAL_STATEMENT = "dbms/MDC/STAT/standard/MDCSTAT02104"
+
+    const val CRAWLING_IS_ALL = "NO"
+    const val CRAWLING_PAGE_INDEX = "1"
+    const val CRAWLING_PAGE_UNIT = "20"
+    const val CRAWLING_PRIOD_KIND = "MON"
+    const val CRAWLING_MENU_ID = "ETS_MNU_00000102"
 
     const val UPBIT_GET_ALL_TICKERS = "isDetails"
 
@@ -199,4 +220,5 @@ object Const {
     const val LAYOUT_STOCK_BASIC_INFO = R.layout.item_stock_base_information
     const val LAYOUT_STOCK_FINANCIAL_STATEMENT = R.layout.item_financial_statement
     const val LAYOUT_STOCK_SINGLE_LINE_CHART = R.layout.item_stock_quotation
+    const val LAYOUT_MONTHLY_TRADING = R.layout.item_monthly_trading
 }
