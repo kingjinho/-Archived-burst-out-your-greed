@@ -14,7 +14,7 @@ class MonthlyTradingAdapter {
         value.exportVolume.trim(),
         value.exportAmount.trim(),
         value.importVolume.trim(),
-        value.importVolume.trim(),
+        value.importAmount.trim(),
         value.surplus.trim())
     }
 }
