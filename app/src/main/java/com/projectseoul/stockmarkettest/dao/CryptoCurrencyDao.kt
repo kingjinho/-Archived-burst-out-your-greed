@@ -12,6 +12,6 @@ import com.projectseoul.stockmarkettest.utils.Const
 abstract class CryptoCurrencyDao : BaseDao<CryptoCurrency> {
 
     @Query("DELETE FROM ${Const.TABLE_CRYPTO_CURRENCY}")
-    abstract suspend fun deleteAll()
+    abstract fun deleteAll()
 
 }
