@@ -39,6 +39,7 @@
 
     <string name="bottom_nav_home">홈</string>
     <string name="bottom_nav_search">검색</string>
+    <string name="bottom_nav_portfolio">포트폴리오</string>
 
     <string name="msg_error">Error!!!!</string>
 
@@ -85,7 +86,6 @@
     <string name="all_sales">매출액(수익)</string>
     <string name="all_opearting_income">영업이익</string>
     <string name="all_net_income">당기순이익</string>
-
 
 
 
