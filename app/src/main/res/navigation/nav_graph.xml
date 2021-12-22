@@ -24,6 +24,9 @@
         <action
             android:id="@+id/main_to_detail"
             app:destination="@id/detail" />
+        <action
+            android:id="@+id/action_main_to_fragmentPortfolio"
+            app:destination="@id/portfolio" />
     </fragment>
     <fragment
         android:id="@+id/search"
@@ -37,6 +40,12 @@
         <argument android:name="stockCode"
             app:argType="string"
             android:defaultValue="null"/>
-
     </fragment>
+
+    <fragment
+        android:id="@+id/portfolio"
+        android:name="com.projectseoul.stockmarkettest.screens.FragmentPortfolio"
+        android:label="FragmentPortfolio" />
+
+
 </navigation>
