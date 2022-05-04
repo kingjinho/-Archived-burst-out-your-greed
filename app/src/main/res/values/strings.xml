@@ -86,7 +86,7 @@
     <string name="all_sales">매출액(수익)</string>
     <string name="all_opearting_income">영업이익</string>
     <string name="all_net_income">당기순이익</string>
-
+    <string name="search_bar_hint">회사명, 종목코드를 입력하세여</string>
 
 
 </resources>
