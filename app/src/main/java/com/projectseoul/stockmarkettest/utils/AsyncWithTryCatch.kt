@@ -1,4 +1,4 @@
-package com.projectseoul.stockmarkettest.extensions
+package com.projectseoul.stockmarkettest.utils
 
 import kotlinx.coroutines.*
 import retrofit2.Response
