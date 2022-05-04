@@ -18,9 +18,9 @@ import java.time.temporal.ChronoUnit
 class SeoulUnitTest {
 
     @Test
-    fun addition_isCorrect() {
+    fun drawdownTest() {
         val list = findDrawdown()
-        assertThat(list.size).isEqualTo(7)
+        assertThat(list.size).isEqualTo(16)
     }
 
 
