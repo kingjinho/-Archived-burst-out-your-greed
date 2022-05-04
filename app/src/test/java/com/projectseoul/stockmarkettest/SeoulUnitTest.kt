@@ -15,18 +15,12 @@ import java.time.temporal.ChronoUnit
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
-class ExampleUnitTest {
-
-    @Test
-    fun `empty list returns false`() {
-        assertThat(quotations.isEmpty()).isFalse()
-    }
+class SeoulUnitTest {
 
     @Test
     fun addition_isCorrect() {
         val list = findDrawdown()
         assertThat(list.size).isEqualTo(7)
-
     }
 
 
