@@ -57,6 +57,7 @@ class FragmentStockDetailViewModel(application: Application, private val stockCo
                 val baseInfo = repo.getBaseInfo(kd!!)
                 val quotation = repo.getQuotationHistory(kd!!)
                 val statement = repo.getStatement(kd!!)
+
                 if (baseInfo.items.isNotEmpty()) {
                     result.add(baseInfo)
                 }

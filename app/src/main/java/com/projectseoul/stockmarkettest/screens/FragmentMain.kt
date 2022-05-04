@@ -5,14 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.projectseoul.stockmarkettest.R
 import com.projectseoul.stockmarkettest.databinding.FragmentMainBinding
 import com.projectseoul.stockmarkettest.models.BaseCrawlingStock
 import com.projectseoul.stockmarkettest.models.HeaderWithItems
@@ -23,7 +20,6 @@ import com.projectseoul.stockmarkettest.recyclerview.ItemClickListener
 import com.projectseoul.stockmarkettest.viewmodels.FragmentMainViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
 /**
@@ -99,11 +95,11 @@ class FragmentMain : BaseBottomFragment() {
 
     override fun onResume() {
         super.onResume()
-        getData()
+        fetchData()
     }
 
 
-    private fun getData() {
+    private fun fetchData() {
         job = viewLifecycleOwner.lifecycleScope.launchWhenResumed {
             val listItems = mutableListOf<HeaderWithItems>()
 

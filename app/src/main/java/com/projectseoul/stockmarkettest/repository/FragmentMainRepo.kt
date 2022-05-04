@@ -1,8 +1,8 @@
 package com.projectseoul.stockmarkettest.repository
 
 import android.app.Application
-import com.projectseoul.stockmarkettest.extensions.execute
-import com.projectseoul.stockmarkettest.extensions.executeMultiple
+import com.projectseoul.stockmarkettest.utils.execute
+import com.projectseoul.stockmarkettest.utils.executeMultiple
 import com.projectseoul.stockmarkettest.extensions.getBodyExt
 import com.projectseoul.stockmarkettest.models.*
 import com.projectseoul.stockmarkettest.utils.Const
