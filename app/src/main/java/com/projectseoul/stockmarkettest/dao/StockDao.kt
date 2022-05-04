@@ -12,11 +12,11 @@ import com.projectseoul.stockmarkettest.utils.Const
 abstract class StockDao : BaseDao<Stock> {
 
     @Query("SELECT * FROM ${Const.TABLE_STOCK}")
-    abstract suspend fun getAll() : List<Stock>
+    abstract fun getAll() : List<Stock>
 
-    @Query("DELETE FROM  ${Const.TABLE_STOCK}")
-    abstract suspend fun deleteAll()
+    @Query("DELETE FROM ${Const.TABLE_STOCK}")
+    abstract fun deleteAll()
 
     @Query("SELECT KD FROM ${Const.TABLE_STOCK} WHERE STOCK_CODE = :stockCode")
-    abstract suspend fun getKD(stockCode: String) : String?
+    abstract fun getKD(stockCode: String) : String?
 }
