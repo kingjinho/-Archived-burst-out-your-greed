@@ -43,6 +43,8 @@ object Dates {
         yearAgo.format(DateTimeFormatter.ofPattern(Const.DATE_FORMAT))
     }
 
+    const val oldestDate = "19960103"
+
     val currentYear: String by lazy {
         "${today.year}"
     }
