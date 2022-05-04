@@ -128,6 +128,6 @@ fun importAmount(view: MaterialTextView, value: String) {
 
 fun setTextColor(view: MaterialTextView, value: String) {
     view.setTextColor(
-        view.context.getColor(if (value.contains("-")) R.color.decreasing else R.color.increasing)
+        view.context.getColor(if (value.contains("-")) R.color.cardview_shadow_end_color else R.color.design_default_color_on_primary)
     )
 }
