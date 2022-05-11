@@ -8,62 +8,62 @@ import com.projectseoul.stockmarkettest.R
  */
 sealed class HeaderWithItems(
     @StringRes open var titleRes: Int,
-    val from: ECriteria, val enableDelay: Boolean = true
+    val from: ESection, val enableDelay: Boolean = true
 )
 
 data class HeaderWithFluctuation(
     val items: List<StockByFluctuation>
-) : HeaderWithItems(R.string.main_up_down_top_50, ECriteria.FLUCTUATION)
+) : HeaderWithItems(R.string.main_up_down_top_50, ESection.FLUCTUATION)
 
 data class HeaderWithTransaction(
     val items: List<StockByTransaction>
-) : HeaderWithItems(R.string.main_top_50_by_transaction, ECriteria.TRANSACTION)
+) : HeaderWithItems(R.string.main_top_50_by_transaction, ESection.TRANSACTION)
 
 data class HeaderWithMarketCap(
     val items: List<StockByMarketCap>
-) : HeaderWithItems(R.string.main_top_50_by_market_cap, ECriteria.MARKET_CAP)
+) : HeaderWithItems(R.string.main_top_50_by_market_cap, ESection.MARKET_CAP)
 
 data class HeaderWithUpperLowerLimit(
     val items: List<StockByUpperLowerLimit>
-) : HeaderWithItems(R.string.main_upper_lower_limit, ECriteria.UPPER_LOWER_LIMIT)
+) : HeaderWithItems(R.string.main_upper_lower_limit, ESection.UPPER_LOWER_LIMIT)
 
 data class HeaderWithTurnover(
     val items: List<StockByTurnover>
-) : HeaderWithItems(R.string.main_top_50_by_turnover, ECriteria.TURNOVER)
+) : HeaderWithItems(R.string.main_top_50_by_turnover, ESection.TURNOVER)
 
 data class HeaderWithForeigner(
     val items: List<StockByForeigner>
-) : HeaderWithItems(R.string.main_top_50_by_foreigner, ECriteria.FOREIGNER)
+) : HeaderWithItems(R.string.main_top_50_by_foreigner, ESection.FOREIGNER)
 
 data class HeaderWithBlockDeal(
     val items: List<StockByBlockDeal>
-) : HeaderWithItems(R.string.main_block_deal, ECriteria.BLOCK_DEAL)
+) : HeaderWithItems(R.string.main_block_deal, ESection.BLOCK_DEAL)
 
 data class HeaderWithGrains(
     val items: List<Grain>
-) : HeaderWithItems(R.string.main_grain_price, ECriteria.GRAIN, false)
+) : HeaderWithItems(R.string.main_grain_price, ESection.GRAIN, false)
 
 data class HeaderWithOil(
     val items: List<CrudeOil>
-) : HeaderWithItems(R.string.main_oil_price, ECriteria.OIL, false)
+) : HeaderWithItems(R.string.main_oil_price, ESection.OIL, false)
 
 data class HeaderWithBalticIndices(
     val items: List<BDIIndex>
-) : HeaderWithItems(R.string.main_bdi_index, ECriteria.BALTIC_INDEX, false)
+) : HeaderWithItems(R.string.main_bdi_index, ESection.BALTIC_INDEX, false)
 
 data class HeaderWithBasicInfo(
     val items: List<StockBaseInfo>
-) : HeaderWithItems(R.string.stock_detail_basic_info, ECriteria.BASIC_INFO, false)
+) : HeaderWithItems(R.string.stock_detail_basic_info, ESection.BASIC_INFO, false)
 
 data class HeaderWithStatement(
     val items: List<StockFinancialStatement>
-) : HeaderWithItems(R.string.stock_detail_financial_statement, ECriteria.FINANCIAL_STATEMENT, false)
+) : HeaderWithItems(R.string.stock_detail_financial_statement, ESection.FINANCIAL_STATEMENT, false)
 
 data class HeaderWithSingleLineChart(
     override var titleRes: Int,
     val items: List<List<SingleLineChart>>
-) : HeaderWithItems(titleRes, ECriteria.LINE_CHART, false)
+) : HeaderWithItems(titleRes, ESection.LINE_CHART, false)
 
 data class HeaderWithMonthlyTrading(
     val items: List<MonthlyTrading>
-) : HeaderWithItems(R.string.main_monthly_trading, ECriteria.MONTHLY_TRADING, false)
+) : HeaderWithItems(R.string.main_monthly_trading, ESection.MONTHLY_TRADING, false)
