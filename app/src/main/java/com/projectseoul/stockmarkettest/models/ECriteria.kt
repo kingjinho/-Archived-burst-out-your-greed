@@ -6,7 +6,7 @@ import com.projectseoul.stockmarkettest.R
 /**
  * Created by KING JINHO on 9/27/2021
  */
-enum class EFrom {
+enum class ECriteria {
 
     FLUCTUATION,
     TRANSACTION,
