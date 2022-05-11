@@ -20,7 +20,6 @@ import com.projectseoul.stockmarkettest.recyclerview.ItemClickListener
 import com.projectseoul.stockmarkettest.viewmodels.FragmentMainViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
-import java.lang.IllegalArgumentException
 
 /**
  * Created by KING JINHO on 9/14/2021

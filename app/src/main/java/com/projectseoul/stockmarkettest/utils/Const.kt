@@ -1,7 +1,6 @@
 package com.projectseoul.stockmarkettest.utils
 
 import com.projectseoul.stockmarkettest.R
-import com.squareup.moshi.Json
 
 /**
  * Created by KING JINHO on 9/14/2021

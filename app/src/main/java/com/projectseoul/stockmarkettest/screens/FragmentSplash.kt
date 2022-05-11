@@ -13,7 +13,6 @@ import androidx.navigation.fragment.findNavController
 import com.projectseoul.stockmarkettest.R
 import com.projectseoul.stockmarkettest.databinding.FragmentSplashBinding
 import com.projectseoul.stockmarkettest.viewmodels.FragmentSplashViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import java.util.concurrent.TimeUnit

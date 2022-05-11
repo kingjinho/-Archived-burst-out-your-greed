@@ -2,7 +2,6 @@ package com.projectseoul.stockmarkettest.recyclerview
 
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.projectseoul.stockmarkettest.models.HeaderWithItems
 
 /**
  * Created by KING JINHO on 9/15/2021

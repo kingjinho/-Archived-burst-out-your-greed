@@ -1,9 +1,7 @@
 package com.projectseoul.stockmarkettest.recyclerview.viewholders
 
 import com.projectseoul.stockmarkettest.databinding.ItemStockForeignerBinding
-import com.projectseoul.stockmarkettest.databinding.ItemStockForeignerShortBinding
 import com.projectseoul.stockmarkettest.models.StockByForeigner
-import com.projectseoul.stockmarkettest.models.StockByMarketCap
 import com.projectseoul.stockmarkettest.recyclerview.BaseViewHolder
 
 /**

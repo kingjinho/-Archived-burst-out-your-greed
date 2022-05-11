@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.projectseoul.stockmarkettest.models.*
 import com.projectseoul.stockmarkettest.utils.Const
-import java.lang.IllegalArgumentException
 
 /**
  * Created by KING JINHO on 9/18/2021

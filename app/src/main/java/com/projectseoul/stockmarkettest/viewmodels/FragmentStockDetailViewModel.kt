@@ -9,10 +9,8 @@ import com.projectseoul.stockmarkettest.models.HeaderWithItems
 import com.projectseoul.stockmarkettest.repository.FragmentStockDetailRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 /**

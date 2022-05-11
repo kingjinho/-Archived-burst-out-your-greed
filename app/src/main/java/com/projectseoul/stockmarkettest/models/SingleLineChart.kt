@@ -1,10 +1,6 @@
 package com.projectseoul.stockmarkettest.models
 
-import android.icu.text.SimpleDateFormat
-import java.text.DecimalFormat
 import java.text.NumberFormat
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 /**

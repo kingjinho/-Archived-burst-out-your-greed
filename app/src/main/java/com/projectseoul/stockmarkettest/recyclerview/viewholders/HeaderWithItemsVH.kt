@@ -3,7 +3,6 @@ package com.projectseoul.stockmarkettest.recyclerview.viewholders
 import android.graphics.Rect
 import android.view.View
 import androidx.core.view.isVisible
-import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.projectseoul.stockmarkettest.databinding.ItemHeaderWithRecyclerviewBinding
@@ -11,7 +10,6 @@ import com.projectseoul.stockmarkettest.models.*
 import com.projectseoul.stockmarkettest.recyclerview.HeaderWithItemsListener
 import com.projectseoul.stockmarkettest.recyclerview.ItemClickListener
 import com.projectseoul.stockmarkettest.recyclerview.ItemRecyclerViewAdapter
-import java.lang.IllegalArgumentException
 
 /**
  * Created by KING JINHO on 9/15/2021
@@ -277,6 +275,5 @@ class HeaderWithItemsVH(
                         newItem: MonthlyTrading
                     ) = oldItem.period == newItem.period
                 })
-            else -> throw IllegalArgumentException("Must Match!")
         }
 }

@@ -1,6 +1,9 @@
 package com.projectseoul.stockmarkettest.utils
 
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
 import retrofit2.Response
 
 /**

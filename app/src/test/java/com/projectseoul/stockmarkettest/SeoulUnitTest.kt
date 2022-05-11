@@ -1,12 +1,11 @@
 package com.projectseoul.stockmarkettest
 
+
+import com.google.common.truth.Truth.assertThat
+import com.projectseoul.stockmarkettest.TestData.quotations
 import com.projectseoul.stockmarkettest.models.Drawdown
 import com.projectseoul.stockmarkettest.models.Quote
 import org.junit.Test
-import com.google.common.truth.Truth.assertThat
-import com.projectseoul.stockmarkettest.TestData.quotations
-
-
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 

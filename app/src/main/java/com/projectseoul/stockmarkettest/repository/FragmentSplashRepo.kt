@@ -8,8 +8,6 @@ import com.projectseoul.stockmarkettest.utils.Const
 import com.projectseoul.stockmarkettest.utils.Dates.mostCurrentDate
 import kotlinx.coroutines.*
 import retrofit2.Response
-import java.util.*
-import java.util.concurrent.TimeUnit
 
 /**
  * Created by KING JINHO on 9/14/2021

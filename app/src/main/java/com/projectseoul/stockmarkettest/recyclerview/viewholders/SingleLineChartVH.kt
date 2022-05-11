@@ -10,7 +10,6 @@ import com.projectseoul.stockmarkettest.databinding.ItemStockQuotationBinding
 import com.projectseoul.stockmarkettest.models.SingleLineChart
 import com.projectseoul.stockmarkettest.recyclerview.BaseViewHolder
 import com.projectseoul.stockmarkettest.utils.YAxisValueFormatter
-import java.util.ArrayList
 
 /**
  * Created by KING JINHO on 9/29/2021

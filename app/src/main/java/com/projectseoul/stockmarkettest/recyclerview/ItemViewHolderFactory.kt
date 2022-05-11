@@ -18,7 +18,6 @@ import com.projectseoul.stockmarkettest.utils.Const.LAYOUT_STOCK_SINGLE_LINE_CHA
 import com.projectseoul.stockmarkettest.utils.Const.LAYOUT_STOCK_TRANSACTION_SHORT
 import com.projectseoul.stockmarkettest.utils.Const.LAYOUT_STOCK_TURNOVER_SHORT
 import com.projectseoul.stockmarkettest.utils.Const.LAYOUT_STOCK_UPPER_LOWER_LIMIT_SHORT
-import java.lang.IllegalArgumentException
 
 /**
  * Created by KING JINHO on 9/18/2021

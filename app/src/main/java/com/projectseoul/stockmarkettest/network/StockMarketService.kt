@@ -4,7 +4,9 @@ import com.projectseoul.stockmarkettest.entities.Stock
 import com.projectseoul.stockmarkettest.models.*
 import com.projectseoul.stockmarkettest.utils.Const
 import retrofit2.Response
-import retrofit2.http.*
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.POST
 
 /**
  * Created by KING JINHO on 9/14/2021

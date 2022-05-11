@@ -2,11 +2,11 @@ package com.projectseoul.stockmarkettest.repository
 
 import android.app.Application
 import com.projectseoul.stockmarkettest.R
-import com.projectseoul.stockmarkettest.utils.execute
 import com.projectseoul.stockmarkettest.extensions.getBodyExt
 import com.projectseoul.stockmarkettest.models.*
 import com.projectseoul.stockmarkettest.utils.Dates.mostCurrentDate
 import com.projectseoul.stockmarkettest.utils.Dates.yearAgo
+import com.projectseoul.stockmarkettest.utils.execute
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 

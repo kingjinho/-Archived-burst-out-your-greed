@@ -1,6 +1,5 @@
 package com.projectseoul.stockmarkettest.utils
 
-import java.text.SimpleDateFormat
 import java.time.DayOfWeek
 import java.time.ZoneId
 import java.time.ZonedDateTime

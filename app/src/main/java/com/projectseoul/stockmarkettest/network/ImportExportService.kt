@@ -1,6 +1,5 @@
 package com.projectseoul.stockmarkettest.network
 
-import com.projectseoul.stockmarkettest.models.MonthlyTrading
 import com.projectseoul.stockmarkettest.models.MonthlyTradingJson
 import com.projectseoul.stockmarkettest.utils.Const
 import retrofit2.Response
