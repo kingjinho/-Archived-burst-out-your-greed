@@ -1,7 +1,5 @@
 package com.projectseoul.stockmarkettest.models
 
-import androidx.annotation.StringRes
-import com.projectseoul.stockmarkettest.R
 
 /**
  * Created by KING JINHO on 9/27/2021
