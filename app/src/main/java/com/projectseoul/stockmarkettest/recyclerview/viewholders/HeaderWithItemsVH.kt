@@ -3,7 +3,6 @@ package com.projectseoul.stockmarkettest.recyclerview.viewholders
 import android.graphics.Rect
 import android.view.View
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.projectseoul.stockmarkettest.databinding.ItemHeaderWithRecyclerviewBinding
 import com.projectseoul.stockmarkettest.models.*
@@ -54,226 +53,163 @@ class HeaderWithItemsVH(
         when (item) {
             is HeaderWithFluctuation -> {
                 ItemRecyclerViewAdapter(
-                    item.items,
-                    object : DiffUtil.ItemCallback<StockByFluctuation>() {
-                        override fun areItemsTheSame(
-                            oldItem: StockByFluctuation,
-                            newItem: StockByFluctuation
-                        ) = oldItem == newItem
-
-                        override fun areContentsTheSame(
-                            oldItem: StockByFluctuation,
-                            newItem: StockByFluctuation
-                        ) = oldItem.stockCode == newItem.stockCode
-                                && oldItem.closing == newItem.closing
-                                && oldItem.volume == newItem.volume
-                                && oldItem.amount == newItem.amount
+                    items = item.items,
+                    areItemsTheSame = { old, new ->
+                        return@ItemRecyclerViewAdapter old == new
                     },
-                    itemClickListener
+                    areContentsTheSame = { old, new ->
+                        return@ItemRecyclerViewAdapter (old.stockCode == new.stockCode
+                                && old.closing == new.closing
+                                && old.volume == new.volume
+                                && old.amount == new.amount)
+                    },
+                    listener = itemClickListener
                 )
             }
             is HeaderWithTransaction -> {
                 ItemRecyclerViewAdapter(
-                    item.items,
-                    object : DiffUtil.ItemCallback<StockByTransaction>() {
-                        override fun areItemsTheSame(
-                            oldItem: StockByTransaction,
-                            newItem: StockByTransaction
-                        ) = oldItem == newItem
-
-
-                        override fun areContentsTheSame(
-                            oldItem: StockByTransaction,
-                            newItem: StockByTransaction
-                        ) = oldItem.stockCode == newItem.stockCode
+                    items = item.items,
+                    areItemsTheSame = { oldItem, newItem ->
+                        return@ItemRecyclerViewAdapter oldItem == newItem
+                    },
+                    areContentsTheSame = { oldItem, newItem ->
+                        return@ItemRecyclerViewAdapter oldItem.stockCode == newItem.stockCode
                                 && oldItem.closing == newItem.closing
                                 && oldItem.volume == newItem.volume
                                 && oldItem.amount == newItem.amount
-                    }, itemClickListener
+                    },
+                    listener = itemClickListener
                 )
             }
             is HeaderWithMarketCap -> {
                 ItemRecyclerViewAdapter(
-                    item.items,
-                    object : DiffUtil.ItemCallback<StockByMarketCap>() {
-                        override fun areItemsTheSame(
-                            oldItem: StockByMarketCap,
-                            newItem: StockByMarketCap
-                        ) = oldItem == newItem
-
-
-                        override fun areContentsTheSame(
-                            oldItem: StockByMarketCap,
-                            newItem: StockByMarketCap
-                        ) = oldItem.stockCode == newItem.stockCode
+                    items = item.items,
+                    areItemsTheSame = { oldItem, newItem ->
+                        return@ItemRecyclerViewAdapter oldItem == newItem
+                    },
+                    areContentsTheSame = { oldItem, newItem ->
+                        return@ItemRecyclerViewAdapter oldItem.stockCode == newItem.stockCode
                                 && oldItem.closing == newItem.closing
                                 && oldItem.volume == newItem.volume
                                 && oldItem.amount == newItem.amount
-                    }, itemClickListener
+                    },
+                    listener = itemClickListener
                 )
             }
             is HeaderWithUpperLowerLimit -> {
                 ItemRecyclerViewAdapter(
-                    item.items,
-                    object : DiffUtil.ItemCallback<StockByUpperLowerLimit>() {
-                        override fun areItemsTheSame(
-                            oldItem: StockByUpperLowerLimit,
-                            newItem: StockByUpperLowerLimit
-                        ) = oldItem == newItem
-
-
-                        override fun areContentsTheSame(
-                            oldItem: StockByUpperLowerLimit,
-                            newItem: StockByUpperLowerLimit
-                        ) = oldItem.stockCode == newItem.stockCode
+                    items = item.items,
+                    areItemsTheSame = { oldItem, newItem ->
+                        return@ItemRecyclerViewAdapter oldItem == newItem
+                    },
+                    areContentsTheSame = { oldItem, newItem ->
+                        return@ItemRecyclerViewAdapter oldItem.stockCode == newItem.stockCode
                                 && oldItem.closing == newItem.closing
                                 && oldItem.volume == newItem.volume
                                 && oldItem.amount == newItem.amount
-                    }, itemClickListener
+                    },
+                    listener = itemClickListener
                 )
             }
             is HeaderWithForeigner -> {
                 ItemRecyclerViewAdapter(
-                    item.items,
-                    object : DiffUtil.ItemCallback<StockByForeigner>() {
-                        override fun areItemsTheSame(
-                            oldItem: StockByForeigner,
-                            newItem: StockByForeigner
-                        ) = oldItem == newItem
-
-
-                        override fun areContentsTheSame(
-                            oldItem: StockByForeigner,
-                            newItem: StockByForeigner
-                        ) = oldItem.stockCode == newItem.stockCode
-                    }, itemClickListener
+                    items = item.items,
+                    areItemsTheSame = { oldItem, newItem ->
+                        return@ItemRecyclerViewAdapter oldItem == newItem
+                    },
+                    areContentsTheSame = { oldItem, newItem ->
+                        return@ItemRecyclerViewAdapter oldItem.stockCode == newItem.stockCode
+                    },
+                    listener = itemClickListener
                 )
             }
             is HeaderWithTurnover -> {
                 ItemRecyclerViewAdapter(
-                    item.items,
-                    object : DiffUtil.ItemCallback<StockByTurnover>() {
-                        override fun areItemsTheSame(
-                            oldItem: StockByTurnover,
-                            newItem: StockByTurnover
-                        ) = oldItem == newItem
-
-
-                        override fun areContentsTheSame(
-                            oldItem: StockByTurnover,
-                            newItem: StockByTurnover
-                        ) = oldItem.stockCode == newItem.stockCode
-                    }, itemClickListener
+                    items = item.items,
+                    areItemsTheSame = { oldItem, newItem ->
+                        return@ItemRecyclerViewAdapter oldItem == newItem
+                    },
+                    areContentsTheSame = { oldItem, newItem ->
+                        return@ItemRecyclerViewAdapter oldItem.stockCode == newItem.stockCode
+                    },
+                    listener = itemClickListener
                 )
             }
             is HeaderWithBlockDeal -> {
                 ItemRecyclerViewAdapter(
-                    item.items,
-                    object : DiffUtil.ItemCallback<StockByBlockDeal>() {
-                        override fun areItemsTheSame(
-                            oldItem: StockByBlockDeal,
-                            newItem: StockByBlockDeal
-                        ) = oldItem == newItem
-
-
-                        override fun areContentsTheSame(
-                            oldItem: StockByBlockDeal,
-                            newItem: StockByBlockDeal
-                        ) = oldItem.stockCode == newItem.stockCode
-                    }, itemClickListener
+                    items = item.items,
+                    areItemsTheSame = { oldItem, newItem ->
+                        return@ItemRecyclerViewAdapter oldItem == newItem
+                    },
+                    areContentsTheSame = { oldItem, newItem ->
+                        return@ItemRecyclerViewAdapter oldItem.stockCode == newItem.stockCode
+                    },
+                    listener = itemClickListener
                 )
             }
             is HeaderWithGrains -> {
-                ItemRecyclerViewAdapter(item.items,
-                    object : DiffUtil.ItemCallback<Grain>() {
-                        override fun areItemsTheSame(
-                            oldItem: Grain,
-                            newItem: Grain
-                        ) = oldItem == newItem
-
-                        override fun areContentsTheSame(
-                            oldItem: Grain,
-                            newItem: Grain
-                        ) = oldItem.date == newItem.date
+                ItemRecyclerViewAdapter(
+                    items = item.items,
+                    areItemsTheSame = { oldItem, newItem ->
+                        return@ItemRecyclerViewAdapter oldItem == newItem
+                    },
+                    areContentsTheSame = { oldItem, newItem ->
+                        return@ItemRecyclerViewAdapter oldItem.date == newItem.date
                     })
             }
             is HeaderWithOil -> {
-                ItemRecyclerViewAdapter(item.items,
-                    object : DiffUtil.ItemCallback<CrudeOil>() {
-                        override fun areItemsTheSame(
-                            oldItem: CrudeOil,
-                            newItem: CrudeOil
-                        ) = oldItem == newItem
-
-                        override fun areContentsTheSame(
-                            oldItem: CrudeOil,
-                            newItem: CrudeOil
-                        ) = oldItem.date == newItem.date
+                ItemRecyclerViewAdapter(
+                    items = item.items,
+                    areItemsTheSame = { oldItem, newItem ->
+                        return@ItemRecyclerViewAdapter oldItem == newItem
+                    },
+                    areContentsTheSame = { oldItem, newItem ->
+                        return@ItemRecyclerViewAdapter oldItem.date == newItem.date
                     })
             }
             is HeaderWithBalticIndices -> {
-                ItemRecyclerViewAdapter(item.items,
-                    object : DiffUtil.ItemCallback<BDIIndex>() {
-                        override fun areItemsTheSame(
-                            oldItem: BDIIndex,
-                            newItem: BDIIndex
-                        ) = oldItem == newItem
-
-                        override fun areContentsTheSame(
-                            oldItem: BDIIndex,
-                            newItem: BDIIndex
-                        ) = oldItem.date == newItem.date
+                ItemRecyclerViewAdapter(
+                    items = item.items,
+                    areItemsTheSame = { oldItem, newItem ->
+                        return@ItemRecyclerViewAdapter oldItem == newItem
+                    },
+                    areContentsTheSame = { oldItem, newItem ->
+                        return@ItemRecyclerViewAdapter oldItem.date == newItem.date
                     })
             }
             is HeaderWithBasicInfo -> {
-                ItemRecyclerViewAdapter(item.items,
-                    object : DiffUtil.ItemCallback<StockBaseInfo>() {
-                        override fun areItemsTheSame(
-                            oldItem: StockBaseInfo,
-                            newItem: StockBaseInfo
-                        ) = oldItem == newItem
-
-                        override fun areContentsTheSame(
-                            oldItem: StockBaseInfo,
-                            newItem: StockBaseInfo
-                        ) = oldItem.stockCode == newItem.stockCode
+                ItemRecyclerViewAdapter(
+                    items = item.items,
+                    areItemsTheSame = { oldItem, newItem ->
+                        return@ItemRecyclerViewAdapter oldItem == newItem
+                    },
+                    areContentsTheSame = { oldItem, newItem ->
+                        return@ItemRecyclerViewAdapter oldItem.stockCode == newItem.stockCode
                     })
             }
-            is HeaderWithSingleLineChart -> ItemRecyclerViewAdapter(item.items,
-                object : DiffUtil.ItemCallback<List<SingleLineChart>>() {
-                    override fun areItemsTheSame(
-                        oldItem: List<SingleLineChart>,
-                        newItem: List<SingleLineChart>
-                    ) = oldItem == newItem
-
-                    override fun areContentsTheSame(
-                        oldItem: List<SingleLineChart>,
-                        newItem: List<SingleLineChart>
-                    ) = oldItem.size == newItem.size
+            is HeaderWithSingleLineChart -> ItemRecyclerViewAdapter(
+                items = item.items,
+                areItemsTheSame = { oldItem, newItem ->
+                    return@ItemRecyclerViewAdapter oldItem == newItem
+                },
+                areContentsTheSame = { oldItem, newItem ->
+                    return@ItemRecyclerViewAdapter oldItem.size == newItem.size
                 })
-            is HeaderWithStatement -> ItemRecyclerViewAdapter(item.items,
-                object : DiffUtil.ItemCallback<StockFinancialStatement>() {
-                    override fun areItemsTheSame(
-                        oldItem: StockFinancialStatement,
-                        newItem: StockFinancialStatement
-                    ) = oldItem == newItem
-
-                    override fun areContentsTheSame(
-                        oldItem: StockFinancialStatement,
-                        newItem: StockFinancialStatement
-                    ) = oldItem.equals(newItem)
+            is HeaderWithStatement -> ItemRecyclerViewAdapter(
+                items = item.items,
+                areItemsTheSame = { oldItem, newItem ->
+                    return@ItemRecyclerViewAdapter oldItem == newItem
+                },
+                areContentsTheSame = { oldItem, newItem ->
+                    return@ItemRecyclerViewAdapter oldItem.equals(newItem)
                 })
-            is HeaderWithMonthlyTrading -> ItemRecyclerViewAdapter(item.items,
-                object : DiffUtil.ItemCallback<MonthlyTrading>() {
-                    override fun areItemsTheSame(
-                        oldItem: MonthlyTrading,
-                        newItem: MonthlyTrading
-                    ) = oldItem == newItem
-
-                    override fun areContentsTheSame(
-                        oldItem: MonthlyTrading,
-                        newItem: MonthlyTrading
-                    ) = oldItem.period == newItem.period
+            is HeaderWithMonthlyTrading -> ItemRecyclerViewAdapter(
+                items = item.items,
+                areItemsTheSame = { oldItem, newItem ->
+                    return@ItemRecyclerViewAdapter oldItem == newItem
+                },
+                areContentsTheSame = { oldItem, newItem ->
+                    return@ItemRecyclerViewAdapter oldItem.period == newItem.period
                 })
         }
 }
