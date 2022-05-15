@@ -8,7 +8,7 @@ import com.squareup.moshi.JsonClass
  * Created by KING JINHO on 9/15/2021
  */
 @JsonClass(generateAdapter = false)
-open class BaseCrawlingStock {
+open class BaseStock {
     @Json(name = Const.JSON_ISU_CD)
     var stockCode: String? = null
 
