@@ -20,4 +20,4 @@ data class StockByFluctuation(
     @Json(name = Const.JSON_ACC_TRDVAL)
     var amount: String,
 
-) : BaseCrawlingStock()
+) : BaseStock()

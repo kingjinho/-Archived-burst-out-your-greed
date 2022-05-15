@@ -26,4 +26,4 @@ data class StockByUpperLowerLimit(
     @Json(name = Const.JSON_ACC_TRDVAL)
     val amount: String
 
-) : BaseCrawlingStock()
+) : BaseStock()

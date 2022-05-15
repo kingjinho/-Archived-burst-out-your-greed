@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.projectseoul.stockmarkettest.databinding.FragmentMainBinding
-import com.projectseoul.stockmarkettest.models.BaseCrawlingStock
+import com.projectseoul.stockmarkettest.models.BaseStock
 import com.projectseoul.stockmarkettest.models.HeaderWithItems
 import com.projectseoul.stockmarkettest.models.StockByBlockDeal
 import com.projectseoul.stockmarkettest.recyclerview.HeaderWithItemsAdapter
@@ -58,7 +58,7 @@ class FragmentMain : BaseBottomFragment() {
             object : ItemClickListener {
                 override fun onClick(item: Any) {
                     val stockCode = when (item) {
-                        is BaseCrawlingStock -> item.stockCode
+                        is BaseStock -> item.stockCode
                         is StockByBlockDeal -> item.stockCode
                         else -> throw IllegalArgumentException("item type should match")
                     }

@@ -24,4 +24,4 @@ data class StockByTurnover(
     @Json(name = Const.JSON_LIST_SHRS)
     val stockIssued: String
 
-) : BaseCrawlingStock()
+) : BaseStock()

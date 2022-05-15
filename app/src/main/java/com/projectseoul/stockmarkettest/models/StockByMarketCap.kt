@@ -26,4 +26,4 @@ data class StockByMarketCap(
     @Json(name = Const.JSON_TDD_CLSPRC)
     val closing: String,
 
-) : BaseCrawlingStock()
+) : BaseStock()

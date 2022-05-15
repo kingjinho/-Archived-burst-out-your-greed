@@ -24,4 +24,4 @@ data class StockByTransaction(
     val closing: String,
 
 
-) : BaseCrawlingStock()
+) : BaseStock()
