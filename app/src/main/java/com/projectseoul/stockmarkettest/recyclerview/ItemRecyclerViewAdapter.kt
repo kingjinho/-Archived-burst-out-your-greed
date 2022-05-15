@@ -11,10 +11,21 @@ import com.projectseoul.stockmarkettest.utils.Const
  */
 class ItemRecyclerViewAdapter<T : Any>(
     private val items: List<T>,
-    callback: DiffUtil.ItemCallback<T>,
+    private val areItemsTheSame: (oldItem: T, newItem: T) -> Boolean,
+    private val areContentsTheSame: (oldItem: T, newItem: T) -> Boolean,
     private val listener: ItemClickListener? = null
 ) :
-    ListAdapter<T, BaseViewHolder>(callback) {
+    ListAdapter<T, BaseViewHolder>(
+        object : DiffUtil.ItemCallback<T>() {
+            override fun areItemsTheSame(oldItem: T, newItem: T): Boolean {
+                return areItemsTheSame(oldItem, newItem)
+            }
+
+            override fun areContentsTheSame(oldItem: T, newItem: T): Boolean {
+                return areContentsTheSame(oldItem, newItem)
+            }
+        }
+    ) {
 
     override fun getItemViewType(position: Int): Int {
         return when (items[position]) {
