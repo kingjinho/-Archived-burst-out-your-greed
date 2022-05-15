@@ -8,7 +8,7 @@ import com.squareup.moshi.JsonClass
  * Created by KING JINHO on 9/30/2021
  */
 @JsonClass(generateAdapter = true)
-data class CryptoCurrencyJson(
+data class BaseCryptoCurrency(
 
     @Json(name = Const.JSON_UPBIT_TICKER)
     val ticker: String,
