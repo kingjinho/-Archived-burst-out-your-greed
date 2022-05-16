@@ -7,7 +7,7 @@ class Drawdown {
     var peak: Quote? = null
     var trough: Quote? = null
     var recovered: Quote? = null
-    var percentage: Double? = null
+    var rangeInPercentage: Double? = null
     var daysToRecover: String? = null
 }
 
