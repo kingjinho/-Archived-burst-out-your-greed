@@ -141,7 +141,7 @@ class FragmentStockDetailRepo(application: Application) :
                         drawdown.peak = peak
                         drawdown.trough = trough
                         drawdown.recovered = recovered
-                        drawdown.percentage = percentage
+                        drawdown.rangeInPercentage = percentage
                         drawdown.daysToRecover =
                             ChronoUnit.DAYS.between(
                                 LocalDate.of(
@@ -172,7 +172,7 @@ class FragmentStockDetailRepo(application: Application) :
         drawdown.peak = peak
         drawdown.trough = trough
         drawdown.recovered = recovered
-        drawdown.percentage = percentage
+        drawdown.rangeInPercentage = percentage
         list += drawdown
 
         return list
