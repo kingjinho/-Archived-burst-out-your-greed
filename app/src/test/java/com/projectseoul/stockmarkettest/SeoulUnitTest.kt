@@ -22,6 +22,12 @@ class SeoulUnitTest {
         assertThat(list.size).isEqualTo(16)
     }
 
+    @Test
+    fun `test fails if two plus two is equal to three`() {
+        val a = 2 + 2
+        assertThat(a).isEqualTo(4)
+    }
+
 
     private fun findDrawdown(): List<Drawdown> {
         val list = mutableListOf<Drawdown>()
@@ -63,7 +69,7 @@ class SeoulUnitTest {
                 if (recovered != null) {
                     val drawdown = Drawdown()
                     val percentage = (peak!!.price - trough!!.price) / peak.price
-                    if(percentage > 0.1) {
+                    if (percentage > 0.1) {
                         drawdown.peak = peak
                         drawdown.trough = trough
                         drawdown.recovered = recovered
