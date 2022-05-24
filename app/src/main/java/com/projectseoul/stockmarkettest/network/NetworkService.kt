@@ -2,9 +2,9 @@ package com.projectseoul.stockmarkettest.network
 
 import android.util.Log
 import com.projectseoul.stockmarkettest.BuildConfig
-import com.projectseoul.stockmarkettest.adapters.CryptoCurrencyAdapter
-import com.projectseoul.stockmarkettest.adapters.DateAdapter
-import com.projectseoul.stockmarkettest.adapters.MonthlyTradingAdapter
+import com.projectseoul.stockmarkettest.adapters.CryptoCurrencyJsonAdapter
+import com.projectseoul.stockmarkettest.adapters.DateJsonAdapter
+import com.projectseoul.stockmarkettest.adapters.MonthlyTradingJsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -18,9 +18,9 @@ import java.util.concurrent.TimeUnit
  */
 private val moshi = Moshi.Builder()
     .addLast(KotlinJsonAdapterFactory())
-    .add(DateAdapter())
-    .add(CryptoCurrencyAdapter())
-    .add(MonthlyTradingAdapter())
+    .add(DateJsonAdapter())
+    .add(CryptoCurrencyJsonAdapter())
+    .add(MonthlyTradingJsonAdapter())
     .build()
 
 private val logger = HttpLoggingInterceptor {
