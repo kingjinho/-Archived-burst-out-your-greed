@@ -8,7 +8,7 @@ import com.squareup.moshi.ToJson
 /**
  * Created by KING JINHO on 9/15/2021
  */
-class CryptoCurrencyAdapter {
+class CryptoCurrencyJsonAdapter {
 
     @FromJson
     @HasWarning
@@ -18,6 +18,6 @@ class CryptoCurrencyAdapter {
 
     @ToJson
     fun toJson(@HasWarning hasWarning: Boolean): String {
-        return if(hasWarning) Const.UPBIT_WARNING else Const.UPBIT_NONE
+        return if (hasWarning) Const.UPBIT_WARNING else Const.UPBIT_NONE
     }
 }

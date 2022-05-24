@@ -8,8 +8,9 @@ import java.util.*
 /**
  * Created by KING JINHO on 9/14/2021
  */
-class DateAdapter {
+class DateJsonAdapter {
     private val dateFormat = SimpleDateFormat("yyyyMMdd")
+
     @ToJson
     fun toJson(date: Date): String {
         return dateFormat.format(date)
