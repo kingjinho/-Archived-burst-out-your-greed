@@ -7,10 +7,12 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.projectseoul.stockmarkettest.R
 import com.projectseoul.stockmarkettest.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * Created by KING JINHO on 9/14/2021
  */
+@AndroidEntryPoint
 class ActivityMain : AppCompatActivity() {
 
     private val binding by lazy {
