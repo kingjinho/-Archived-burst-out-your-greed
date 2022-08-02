@@ -1,4 +1,6 @@
-# Burst out your Greed
+# (Archived)Burst out your Greed
+
+**No longer maintained**
 
 Hi! This is my side project for scraping data for analyzing stock market
 
