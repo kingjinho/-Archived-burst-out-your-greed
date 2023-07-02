@@ -23,7 +23,7 @@ class FragmentStockDetailViewModel(application: Application, private val stockCo
         private val application: Application, private val stockCode: String
     ) : ViewModelProvider.AndroidViewModelFactory(application) {
 
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return FragmentStockDetailViewModel(application, stockCode) as T
         }
     }
