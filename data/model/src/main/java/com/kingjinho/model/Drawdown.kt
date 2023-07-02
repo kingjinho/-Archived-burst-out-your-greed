@@ -1,4 +1,4 @@
-package com.projectseoul.stockmarkettest.models
+package com.kingjinho.model
 
 /**
  * Created by KING JINHO on 11/29/2021

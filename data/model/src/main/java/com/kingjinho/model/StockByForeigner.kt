@@ -1,6 +1,6 @@
-package com.projectseoul.stockmarkettest.models
+package com.kingjinho.model
 
-import com.projectseoul.stockmarkettest.utils.Const
+import com.kingjinho.shared.Const
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 

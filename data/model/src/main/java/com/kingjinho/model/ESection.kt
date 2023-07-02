@@ -1,4 +1,4 @@
-package com.projectseoul.stockmarkettest.models
+package com.kingjinho.model
 
 
 /**
