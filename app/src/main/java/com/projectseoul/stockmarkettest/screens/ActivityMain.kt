@@ -12,27 +12,15 @@ import dagger.hilt.android.AndroidEntryPoint
 /**
  * Created by KING JINHO on 9/14/2021
  */
-@AndroidEntryPoint
 class ActivityMain : AppCompatActivity() {
 
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
-    private val navController by lazy {
-        (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        binding.bottomNav.setupWithNavController(navController)
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp() || super.onSupportNavigateUp()
-    }
-
-    fun showBottomNav() {
-        binding.bottomNav.isVisible = true
-    }
 }
