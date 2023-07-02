@@ -1,4 +1,4 @@
-package com.projectseoul.stockmarkettest.utils
+package com.kingjinho.shared
 
 import java.time.DayOfWeek
 import java.time.ZoneId
