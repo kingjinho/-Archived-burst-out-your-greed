@@ -1,9 +1,14 @@
 plugins {
-    id("java-library")
-    id("org.jetbrains.kotlin.jvm")
+    id("kotlin")
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_7
-    targetCompatibility = JavaVersion.VERSION_1_7
+dependencies {
+    implementation(project(":shared"))
+//    implementation("com.squareup.moshi:moshi-kotlin:1.13.0")
+//    implementation("com.squareup.moshi:moshi:1.13.0")
+//    implementation("com.squareup.moshi:moshi-adapters:1.13.0")
+
+    implementation(libs.moshi)
+    implementation(libs.moshi.kotlin)
+    implementation(libs.moshi.adapters)
 }
