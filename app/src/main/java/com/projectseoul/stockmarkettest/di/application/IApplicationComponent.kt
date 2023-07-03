@@ -1,6 +1,7 @@
 package com.projectseoul.stockmarkettest.di.application
 
 import android.app.Application
+import androidx.appcompat.app.AppCompatActivity
 import com.projectseoul.stockmarkettest.di.annotation.scope.AppScope
 import com.projectseoul.stockmarkettest.network.*
 import dagger.Component
@@ -23,4 +24,6 @@ interface IApplicationComponent {
     fun commodityService(): CommodityService
 
     fun importExportService(): ImportExportService
+
+    fun inject(activity: AppCompatActivity)
 }
