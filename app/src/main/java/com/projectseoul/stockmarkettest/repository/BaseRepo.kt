@@ -11,12 +11,12 @@ abstract class BaseRepo(application: Application) {
 
     protected val db = AppDatabase.getInstance(application)
 
-    protected val stockMarket = NetworkService.STOCK_MARKET_SERVICE
+    protected val stockMarketService = NetworkService.STOCK_MARKET_SERVICE
 
-    protected val upbit = NetworkService.UPBIT_SERVICE
+    protected val upbitService = NetworkService.UPBIT_SERVICE
 
-    protected val commodity = NetworkService.COMMODITY_SERVICE
+    protected val commodityService = NetworkService.COMMODITY_SERVICE
 
-    protected val importExport = NetworkService.IMPORT_EXPORT_SERVICE
+    protected val importExportService = NetworkService.IMPORT_EXPORT_SERVICE
 
 }
