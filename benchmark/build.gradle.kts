@@ -39,11 +39,11 @@ android {
 }
 
 dependencies {
-    implementation("androidx.test.ext:junit:1.1.5")
-    implementation("androidx.test.espresso:espresso-core:3.5.1")
-    implementation("androidx.test.uiautomator:uiautomator:2.2.0")
-    implementation("androidx.benchmark:benchmark-macro-junit4:1.1.0-beta05")
-    implementation("androidx.core:core-ktx:+")
+    implementation(libs.androidx.test.ext)
+    implementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.test.uiautomator)
+    implementation(libs.androidx.benchmark.macro)
+    implementation(libs.androidx.core)
 }
 
 androidComponents {
