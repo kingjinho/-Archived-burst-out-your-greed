@@ -1,4 +1,4 @@
-package com.projectseoul.stockmarkettest.screens
+package com.projectseoul.stockmarkettest.screens.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,14 +17,15 @@ import com.projectseoul.stockmarkettest.models.StockByBlockDeal
 import com.projectseoul.stockmarkettest.recyclerview.HeaderWithItemsAdapter
 import com.projectseoul.stockmarkettest.recyclerview.HeaderWithItemsListener
 import com.projectseoul.stockmarkettest.recyclerview.ItemClickListener
+import com.projectseoul.stockmarkettest.screens.BaseBottomFragment
+import com.projectseoul.stockmarkettest.screens.FragmentMainDirections
 import com.projectseoul.stockmarkettest.viewmodels.FragmentMainViewModel
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.collect
 
 /**
  * Created by KING JINHO on 9/14/2021
  */
-class FragmentMain : BaseBottomFragment() {
+class ScreenMain : BaseBottomFragment() {
     private lateinit var binding: FragmentMainBinding
 
     private val viewModel by lazy {

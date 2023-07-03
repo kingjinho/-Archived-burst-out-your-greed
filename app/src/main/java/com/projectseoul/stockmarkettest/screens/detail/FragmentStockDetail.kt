@@ -1,4 +1,4 @@
-package com.projectseoul.stockmarkettest.screens
+package com.projectseoul.stockmarkettest.screens.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,9 +17,9 @@ import com.projectseoul.stockmarkettest.R
 import com.projectseoul.stockmarkettest.databinding.FragmentStockDetailBinding
 import com.projectseoul.stockmarkettest.models.HeaderWithItems
 import com.projectseoul.stockmarkettest.recyclerview.HeaderWithItemsAdapter
+import com.projectseoul.stockmarkettest.screens.FragmentStockDetailArgs
 import com.projectseoul.stockmarkettest.viewmodels.FragmentStockDetailViewModel
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.collect
 
 /**
  * Created by KING JINHO on 9/28/2021

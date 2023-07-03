@@ -1,4 +1,4 @@
-package com.projectseoul.stockmarkettest.screens
+package com.projectseoul.stockmarkettest.screens.splash
 
 import android.content.Context
 import android.os.Bundle
