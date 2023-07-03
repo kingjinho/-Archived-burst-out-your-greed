@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/splash"
-        android:name="com.projectseoul.stockmarkettest.screens.FragmentSplash"
+        android:name="com.projectseoul.stockmarkettest.screens.splash.ScreenSplash"
         android:label="FragmentSplash" >
         <action
             android:id="@+id/splash_to_main"
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/main"
-        android:name="com.projectseoul.stockmarkettest.screens.FragmentMain"
+        android:name="com.projectseoul.stockmarkettest.screens.main.ScreenMain"
         android:label="FragmentMain" >
         <action
             android:id="@+id/mainToSearch"
@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/detail"
-        android:name="com.projectseoul.stockmarkettest.screens.FragmentStockDetail"
+        android:name="com.projectseoul.stockmarkettest.screens.detail.ScreenStockDetail"
         android:label="FragmentStockDetail">
 
         <argument android:name="stockCode"
