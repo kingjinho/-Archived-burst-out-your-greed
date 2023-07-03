@@ -24,7 +24,7 @@ import kotlinx.coroutines.Job
 /**
  * Created by KING JINHO on 9/28/2021
  */
-class FragmentStockDetail : Fragment() {
+class ScreenStockDetail : Fragment() {
     private val args: FragmentStockDetailArgs by navArgs()
     private val viewModel: FragmentStockDetailViewModel by viewModels {
         FragmentStockDetailViewModel.StockDetailViewModelFactory(

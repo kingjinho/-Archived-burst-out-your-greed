@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit
 /**
  * Created by KING JINHO on 9/14/2021
  */
-class FragmentSplash : Fragment() {
+class ScreenSplash : Fragment() {
 
     private lateinit var binding: FragmentSplashBinding
     private val viewModel by lazy {
