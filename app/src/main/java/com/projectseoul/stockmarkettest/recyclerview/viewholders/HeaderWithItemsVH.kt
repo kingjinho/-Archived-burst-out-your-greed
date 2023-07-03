@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.projectseoul.stockmarkettest.databinding.ItemHeaderWithRecyclerviewBinding
 import com.projectseoul.stockmarkettest.models.*
 import com.projectseoul.stockmarkettest.recyclerview.HeaderWithItemsListener
-import com.projectseoul.stockmarkettest.recyclerview.ItemClickListener
 import com.projectseoul.stockmarkettest.recyclerview.ItemRecyclerViewAdapter
+import com.projectseoul.stockmarkettest.screens.main.ScreenMainMvc
 
 /**
  * Created by KING JINHO on 9/15/2021
@@ -16,7 +16,7 @@ import com.projectseoul.stockmarkettest.recyclerview.ItemRecyclerViewAdapter
 class HeaderWithItemsVH(
     private val binding: ItemHeaderWithRecyclerviewBinding,
     private val seeMoreClickListener: HeaderWithItemsListener?,
-    private val itemClickListener: ItemClickListener?,
+    private val itemClickListener: ScreenMainMvc.ItemClickListener?,
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: HeaderWithItems) {

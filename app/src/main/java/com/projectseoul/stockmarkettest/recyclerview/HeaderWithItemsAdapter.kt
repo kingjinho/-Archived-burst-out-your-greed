@@ -10,6 +10,7 @@ import com.projectseoul.stockmarkettest.R
 import com.projectseoul.stockmarkettest.databinding.ItemHeaderWithRecyclerviewBinding
 import com.projectseoul.stockmarkettest.models.HeaderWithItems
 import com.projectseoul.stockmarkettest.recyclerview.viewholders.HeaderWithItemsVH
+import com.projectseoul.stockmarkettest.screens.main.ScreenMainMvc
 
 /**
  * Created by KING JINHO on 9/15/2021
@@ -18,7 +19,7 @@ import com.projectseoul.stockmarkettest.recyclerview.viewholders.HeaderWithItems
 class HeaderWithItemsAdapter(
     callback: DiffUtil.ItemCallback<HeaderWithItems>,
     private val seeMoreListener: HeaderWithItemsListener?,
-    private val itemClickListener: ItemClickListener?,
+    private val itemClickListener: ScreenMainMvc.ItemClickListener?,
     private val orientation: Int = RecyclerView.HORIZONTAL,
 ) : ListAdapter<HeaderWithItems, HeaderWithItemsVH>(callback) {
 
