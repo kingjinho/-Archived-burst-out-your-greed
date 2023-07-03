@@ -4,6 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.projectseoul.stockmarkettest.models.*
+import com.projectseoul.stockmarkettest.screens.main.ScreenMainMvc
 import com.projectseoul.stockmarkettest.utils.Const
 
 /**
@@ -13,7 +14,7 @@ class ItemRecyclerViewAdapter<T : Any>(
     private val items: List<T>,
     private val areItemsTheSame: (oldItem: T, newItem: T) -> Boolean,
     private val areContentsTheSame: (oldItem: T, newItem: T) -> Boolean,
-    private val listener: ItemClickListener? = null
+    private val listener: ScreenMainMvc.ItemClickListener? = null
 ) :
     ListAdapter<T, BaseViewHolder>(
         object : DiffUtil.ItemCallback<T>() {
