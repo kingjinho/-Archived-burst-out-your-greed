@@ -1,5 +1,6 @@
 package com.projectseoul.stockmarkettest.di.application
 
+import android.app.Application
 import android.util.Log
 import com.projectseoul.stockmarkettest.BuildConfig
 import com.projectseoul.stockmarkettest.adapters.CryptoCurrencyJsonAdapter
@@ -19,7 +20,13 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 @Module
-class AppModule {
+class ApplicationModule(
+    private val application: Application
+) {
+
+    @Provides
+    @AppScope
+    fun application() = application
 
     @Provides
     @AppScope
@@ -50,7 +57,7 @@ class AppModule {
     @Provides
     @AppScope
     @StockMarketRetrofit
-    fun stockMarketRetrofit(client: OkHttpClient, moshi: Moshi) = Retrofit.Builder()
+    fun stockMarketRetrofit(client: OkHttpClient, moshi: Moshi): Retrofit = Retrofit.Builder()
         .client(client)
         .baseUrl(BuildConfig.KRX_URL)
         .addConverterFactory(MoshiConverterFactory.create(moshi))
@@ -59,7 +66,7 @@ class AppModule {
     @Provides
     @AppScope
     @UpbitRetrofit
-    fun upbitRetrofit(client: OkHttpClient, moshi: Moshi) = Retrofit.Builder()
+    fun upbitRetrofit(client: OkHttpClient, moshi: Moshi): Retrofit = Retrofit.Builder()
         .client(client)
         .baseUrl(BuildConfig.UPBIT_URL)
         .addConverterFactory(MoshiConverterFactory.create(moshi))
@@ -68,7 +75,7 @@ class AppModule {
     @Provides
     @AppScope
     @CurrencyInterestRetrofit
-    fun currencyInterestRetrofit(client: OkHttpClient, moshi: Moshi) = Retrofit.Builder()
+    fun currencyInterestRetrofit(client: OkHttpClient, moshi: Moshi): Retrofit = Retrofit.Builder()
         .client(client)
         .baseUrl(BuildConfig.CURRENCY_URL)
         .addConverterFactory(MoshiConverterFactory.create(moshi))
@@ -77,7 +84,7 @@ class AppModule {
     @Provides
     @AppScope
     @CommodityRetrofit
-    fun commodityRetrofit(client: OkHttpClient, moshi: Moshi) = Retrofit.Builder()
+    fun commodityRetrofit(client: OkHttpClient, moshi: Moshi): Retrofit = Retrofit.Builder()
         .client(client)
         .baseUrl(BuildConfig.COMMODITY_URL)
         .addConverterFactory(MoshiConverterFactory.create(moshi))
@@ -86,7 +93,7 @@ class AppModule {
     @Provides
     @AppScope
     @GoldSilverRetrofit
-    fun goldSilverRetrofit(client: OkHttpClient, moshi: Moshi) = Retrofit.Builder()
+    fun goldSilverRetrofit(client: OkHttpClient, moshi: Moshi): Retrofit = Retrofit.Builder()
         .client(client)
         .baseUrl(BuildConfig.GOLD_SILVER_URL)
         .addConverterFactory(MoshiConverterFactory.create(moshi))
@@ -95,7 +102,7 @@ class AppModule {
     @Provides
     @AppScope
     @ImportExportRetrofit
-    fun importExportRetrofit(client: OkHttpClient, moshi: Moshi) = Retrofit.Builder()
+    fun importExportRetrofit(client: OkHttpClient, moshi: Moshi): Retrofit = Retrofit.Builder()
         .client(client)
         .baseUrl(BuildConfig.IMPORT_EXPORT_URL)
         .addConverterFactory(MoshiConverterFactory.create(moshi))

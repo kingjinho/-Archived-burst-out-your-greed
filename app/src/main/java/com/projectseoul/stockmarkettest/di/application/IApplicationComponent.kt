@@ -1,5 +1,6 @@
 package com.projectseoul.stockmarkettest.di.application
 
+import android.app.Application
 import com.projectseoul.stockmarkettest.di.annotation.scope.AppScope
 import com.projectseoul.stockmarkettest.network.*
 import dagger.Component
@@ -7,22 +8,19 @@ import dagger.Component
 
 @AppScope
 @Component(
-    modules = [AppModule::class]
+    modules = [ApplicationModule::class]
 )
-interface IAppComponent {
+interface IApplicationComponent {
 
-    @AppScope
+    fun application(): Application
+
     fun stockMarketService(): StockMarketService
 
-    @AppScope
     fun upbitService(): UpbitService
 
-    @AppScope
     fun currencyService(): CurrencyInterestRateService
 
-    @AppScope
     fun commodityService(): CommodityService
 
-    @AppScope
     fun importExportService(): ImportExportService
 }
