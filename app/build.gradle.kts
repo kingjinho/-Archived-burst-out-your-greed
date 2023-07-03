@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -14,16 +16,16 @@ android {
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
-        buildConfigField("String", "KRX_URL", "\"http://data.krx.co.kr/\"")
-        buildConfigField("String", "UPBIT_URL", "\"https://api.upbit.com/v1/\"")
-        buildConfigField("String", "OPEC_URL", "\"https://www.opec.org/\"")
-        buildConfigField("String", "GOLD_SILVER_URL", "\"https://data.nasdaq.com/\"")
-        buildConfigField("String", "CURRENCY_URL", "\"https://www.koreaexim.go.kr/site/program/financial/\"")
-        buildConfigField("String", "CURRENCY_KEY", "\"Quev2QgRtLQD8XQJ6bFg4Em256ujwkGM\"")
-        buildConfigField("String", "BASE_INTEREST_RATE", "\"http://ecos.bok.or.kr/api/\"")
-        buildConfigField("String", "BASE_INTEREST_RATE_KEY", "\"DGYNOUL6KY051SK6B7XS\"")
-        buildConfigField("String", "COMMODITY_URL", "\"http://www.krei.re.kr:18181/\"")
-        buildConfigField("String", "IMPORT_EXPORT_URL", "\"https://unipass.customs.go.kr/\"")
+        buildConfigField("String", "KRX_URL", getValueByKey("KRX_URL"))
+        buildConfigField("String", "UPBIT_URL", getValueByKey("UPBIT_URL"))
+        buildConfigField("String", "OPEC_URL", getValueByKey("OPEC_URL"))
+        buildConfigField("String", "GOLD_SILVER_URL", getValueByKey("GOLD_SILVER_URL"))
+        buildConfigField("String", "CURRENCY_URL", getValueByKey("CURRENCY_URL"))
+        buildConfigField("String", "CURRENCY_KEY", getValueByKey("CURRENCY_KEY"))
+        buildConfigField("String", "BASE_INTEREST_RATE", getValueByKey("BASE_INTEREST_RATE"))
+        buildConfigField("String", "BASE_INTEREST_RATE_KEY", getValueByKey("BASE_INTEREST_RATE_KEY"))
+        buildConfigField("String", "COMMODITY_URL", getValueByKey("COMMODITY_URL"))
+        buildConfigField("String", "IMPORT_EXPORT_URL", getValueByKey("IMPORT_EXPORT_URL"))
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -98,6 +100,8 @@ dependencies {
 
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
+}
 
-
+fun getValueByKey(key: String): String {
+    return gradleLocalProperties(rootDir).getProperty(key)
 }
