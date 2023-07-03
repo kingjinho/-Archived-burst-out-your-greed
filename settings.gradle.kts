@@ -1,21 +1,5 @@
 import java.net.URI
 
-include(":shared")
-
-
-include(":data:model")
-
-
-include(":data")
-
-
-include(":domain")
-
-
-
-include(":benchmark")
-
-
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -36,3 +20,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "StockMarketTest"
 include(":app")
+include(":shared")
+include(":benchmark")
