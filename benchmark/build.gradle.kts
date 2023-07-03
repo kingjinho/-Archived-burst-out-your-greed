@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.kingjinho.benchmark"
-    compileSdk = 32
+    compileSdk = 33
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -18,7 +18,7 @@ android {
 
     defaultConfig {
         minSdk = 28
-        targetSdk = 32
+        targetSdk = 33
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -43,6 +43,7 @@ dependencies {
     implementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("androidx.test.uiautomator:uiautomator:2.2.0")
     implementation("androidx.benchmark:benchmark-macro-junit4:1.1.0-beta05")
+    implementation("androidx.core:core-ktx:+")
 }
 
 androidComponents {
