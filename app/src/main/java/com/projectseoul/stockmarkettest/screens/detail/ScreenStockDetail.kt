@@ -17,7 +17,6 @@ import com.projectseoul.stockmarkettest.R
 import com.projectseoul.stockmarkettest.databinding.FragmentStockDetailBinding
 import com.projectseoul.stockmarkettest.models.HeaderWithItems
 import com.projectseoul.stockmarkettest.recyclerview.HeaderWithItemsAdapter
-import com.projectseoul.stockmarkettest.screens.FragmentStockDetailArgs
 import com.projectseoul.stockmarkettest.viewmodels.FragmentStockDetailViewModel
 import kotlinx.coroutines.Job
 
@@ -25,7 +24,7 @@ import kotlinx.coroutines.Job
  * Created by KING JINHO on 9/28/2021
  */
 class ScreenStockDetail : Fragment() {
-    private val args: FragmentStockDetailArgs by navArgs()
+    private val args: ScreenStockDetailArgs by navArgs()
     private val viewModel: FragmentStockDetailViewModel by viewModels {
         FragmentStockDetailViewModel.StockDetailViewModelFactory(
             requireActivity().application, args.stockCode
