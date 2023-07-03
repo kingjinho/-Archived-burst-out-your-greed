@@ -9,9 +9,6 @@ import com.projectseoul.stockmarkettest.utils.Dates.mostCurrentDate
 import com.projectseoul.stockmarkettest.utils.Dates.weekAgo
 import com.projectseoul.stockmarkettest.utils.execute
 import com.projectseoul.stockmarkettest.utils.executeMultiple
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
 import okhttp3.internal.toImmutableList
 
 /**
@@ -32,12 +29,12 @@ class FragmentMainRepo(application: Application) : BaseRepo(application) {
     private var monthlyTrading: List<MonthlyTrading>? = null
 
 
-    val top50ByFluctuationFlow = flow {
+    suspend fun getTop50ByFluctuation(): HeaderWithFluctuation {
         if (fluctuation.isNullOrEmpty()) {
             val asyncResult = executeMultiple(
                 listOf(
-                    stockMarket.getTop50ByFluctuation(1, mostCurrentDate, mostCurrentDate),
-                    stockMarket.getTop50ByFluctuation(2, mostCurrentDate, mostCurrentDate)
+                    stockMarketService.getTop50ByFluctuation(1, mostCurrentDate, mostCurrentDate),
+                    stockMarketService.getTop50ByFluctuation(2, mostCurrentDate, mostCurrentDate)
                 )
             )
 
@@ -45,47 +42,47 @@ class FragmentMainRepo(application: Application) : BaseRepo(application) {
             asyncResult.forEach { response ->
                 response.getBodyExt {
                     val data = it?.result
-                    if (data != null && data.isNotEmpty()) {
+                    if (!data.isNullOrEmpty()) {
                         result.addAll(data)
                     }
                 }
             }
             fluctuation = result.toImmutableList()
         }
-        emit(HeaderWithFluctuation(fluctuation!!))
-    }.flowOn(Dispatchers.IO)
+        return HeaderWithFluctuation(fluctuation!!)
+    }
 
-    val top50ByTransactionFlow = flow {
+    suspend fun getTop50ByTransaction(): HeaderWithTransaction {
         if (transaction.isNullOrEmpty()) {
 
             val asyncResult = execute {
-                stockMarket.getTop50ByTransaction(1, mostCurrentDate, mostCurrentDate)
+                stockMarketService.getTop50ByTransaction(1, mostCurrentDate, mostCurrentDate)
             }?.getBodyExt {
                 it?.result
             }
             transaction = asyncResult ?: emptyList()
         }
-        emit(HeaderWithTransaction(transaction!!))
+        return HeaderWithTransaction(transaction!!)
     }
 
-    val top50ByMarketCapFlow = flow {
+    suspend fun top50ByMarketCap(): HeaderWithMarketCap {
         if (marketCap.isNullOrEmpty()) {
             val asyncResult = execute {
-                stockMarket.getTop50ByMarketCap(mostCurrentDate)
+                stockMarketService.getTop50ByMarketCap(mostCurrentDate)
             }?.getBodyExt {
                 it?.result
             }
             marketCap = asyncResult ?: emptyList()
         }
-        emit(HeaderWithMarketCap(marketCap!!))
+        return HeaderWithMarketCap(marketCap!!)
     }
 
-    val upperLowerLimitFlow = flow {
+    suspend fun getUpperLowerLimit(): HeaderWithUpperLowerLimit {
         if (upperLower.isNullOrEmpty()) {
             val asyncResult = executeMultiple(
                 listOf(
-                    stockMarket.getByUpperLowerLimit(4, mostCurrentDate),
-                    stockMarket.getByUpperLowerLimit(5, mostCurrentDate)
+                    stockMarketService.getByUpperLowerLimit(4, mostCurrentDate),
+                    stockMarketService.getByUpperLowerLimit(5, mostCurrentDate)
                 )
             )
 
@@ -97,16 +94,15 @@ class FragmentMainRepo(application: Application) : BaseRepo(application) {
             }
             upperLower = result.toImmutableList()
         }
-
-        emit(HeaderWithUpperLowerLimit(upperLower!!))
+        return HeaderWithUpperLowerLimit(upperLower!!)
     }
 
-    val top50ByForeignerFlow = flow {
+    suspend fun getTop50ByForeigner(): HeaderWithForeigner {
         if (foreigner.isNullOrEmpty()) {
             val asyncResult = executeMultiple(
                 listOf(
-                    stockMarket.getTop50ByForeigner(1, mostCurrentDate),
-                    stockMarket.getTop50ByForeigner(2, mostCurrentDate)
+                    stockMarketService.getTop50ByForeigner(1, mostCurrentDate),
+                    stockMarketService.getTop50ByForeigner(2, mostCurrentDate)
                 )
             )
             val result = mutableListOf<StockByForeigner>()
@@ -120,40 +116,40 @@ class FragmentMainRepo(application: Application) : BaseRepo(application) {
             foreigner = result.toImmutableList()
         }
 
-        emit(HeaderWithForeigner(foreigner!!))
+        return HeaderWithForeigner(foreigner!!)
     }
 
-    val top50ByTurnoverFlow = flow {
+    suspend fun getTop50ByTurnover(): HeaderWithTurnover {
         if (turnover.isNullOrEmpty()) {
             val asyncResult = execute {
-                stockMarket.getTop50ByTurnover(mostCurrentDate)
+                stockMarketService.getTop50ByTurnover(mostCurrentDate)
             }?.getBodyExt {
                 it?.result
             }
             turnover = asyncResult ?: emptyList()
         }
-        emit(HeaderWithTurnover(turnover!!))
+        return HeaderWithTurnover(turnover!!)
     }
 
-    val blockDealFlow = flow {
+    suspend fun getBlockDealFlow(): HeaderWithBlockDeal {
         if (blockDeal.isNullOrEmpty()) {
             val asyncResult = execute {
-                stockMarket.getBlockTrade()
+                stockMarketService.getBlockTrade()
             }?.getBodyExt {
                 it?.result
             }
             blockDeal = asyncResult ?: emptyList()
         }
-        emit(HeaderWithBlockDeal(blockDeal!!))
+        return HeaderWithBlockDeal(blockDeal!!)
     }
 
-    val cornWheatSoyBeanFlow = flow {
+    suspend fun getCornWheatSoyBean(): HeaderWithGrains {
         if (grains.isNullOrEmpty()) {
             val asyncResult = executeMultiple(
                 listOf(
-                    commodity.getGrain(Const.PATH_WHEAT, weekAgo, mostCurrentDate),
-                    commodity.getGrain(Const.PATH_CORN, weekAgo, mostCurrentDate),
-                    commodity.getGrain(Const.PATH_SOYBEAN, weekAgo, mostCurrentDate)
+                    commodityService.getGrain(Const.PATH_WHEAT, weekAgo, mostCurrentDate),
+                    commodityService.getGrain(Const.PATH_CORN, weekAgo, mostCurrentDate),
+                    commodityService.getGrain(Const.PATH_SOYBEAN, weekAgo, mostCurrentDate)
                 )
             )
             val data = mutableListOf<Grain>()
@@ -173,10 +169,12 @@ class FragmentMainRepo(application: Application) : BaseRepo(application) {
                                     wheatPrice = it.price
                                     wheatVolume = it.volume
                                 }
+
                                 1 -> {
                                     cornPrice = it.price
                                     cornVolume = it.volume
                                 }
+
                                 else -> {
                                     soyBeanPrice = it.price
                                     soyBeanVolume = it.volume
@@ -189,13 +187,13 @@ class FragmentMainRepo(application: Application) : BaseRepo(application) {
             data.sortByDescending { it.date }
             grains = data.toImmutableList()
         }
-        emit(HeaderWithGrains(grains!!))
+        return HeaderWithGrains(grains!!)
     }
 
-    val crudeOilFlow = flow {
+    suspend fun getCrudeOil(): HeaderWithOil {
         if (oil.isNullOrEmpty()) {
             val asyncResult = execute {
-                commodity.getCrudeOil(weekAgo, mostCurrentDate)
+                commodityService.getCrudeOil(weekAgo, mostCurrentDate)
             }
 
             val result = when (asyncResult) {
@@ -208,13 +206,13 @@ class FragmentMainRepo(application: Application) : BaseRepo(application) {
             oil = result ?: emptyList()
         }
 
-        emit(HeaderWithOil(oil!!))
+        return HeaderWithOil(oil!!)
     }
 
-    val balticIndexFlow = flow {
+    suspend fun getBalticIndex(): HeaderWithBalticIndices {
         if (indices.isNullOrEmpty()) {
             val asyncResult = execute {
-                commodity.getBDIs(weekAgo, mostCurrentDate)
+                commodityService.getBDIs(weekAgo, mostCurrentDate)
             }
 
             val result = when (asyncResult) {
@@ -228,13 +226,13 @@ class FragmentMainRepo(application: Application) : BaseRepo(application) {
             result?.sortByDescending { it.date }
             indices = result ?: emptyList()
         }
-        emit(HeaderWithBalticIndices(indices!!))
+        return HeaderWithBalticIndices(indices!!)
     }
 
-    val importExportFlow = flow {
-        if(monthlyTrading.isNullOrEmpty()) {
+    suspend fun getImportExport(): HeaderWithMonthlyTrading {
+        if (monthlyTrading.isNullOrEmpty()) {
             val asyncResult = execute {
-                importExport.getMonthlyTradingData(
+                importExportService.getMonthlyTradingData(
                     "${Dates.currentYear}01", "${Dates.currentYear}${Dates.currentMonth}"
                 )
             }
@@ -243,6 +241,6 @@ class FragmentMainRepo(application: Application) : BaseRepo(application) {
             monthlyTrading = result?.sortedByDescending { it.period } ?: emptyList()
         }
 
-        emit(HeaderWithMonthlyTrading(monthlyTrading!!))
+        return HeaderWithMonthlyTrading(monthlyTrading!!)
     }
 }
