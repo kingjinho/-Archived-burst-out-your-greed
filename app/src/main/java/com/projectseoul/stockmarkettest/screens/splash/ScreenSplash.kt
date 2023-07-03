@@ -7,14 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.projectseoul.stockmarkettest.R
 import com.projectseoul.stockmarkettest.databinding.FragmentSplashBinding
 import com.projectseoul.stockmarkettest.viewmodels.FragmentSplashViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import java.util.concurrent.TimeUnit
 
 /**
@@ -39,35 +42,37 @@ class ScreenSplash : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        getBasicInformation()
+    }
+
     override fun onStop() {
         super.onStop()
         job?.cancel()
     }
 
-    override fun onResume() {
-        super.onResume()
-        getBasicInformation()
-    }
-
     private fun getBasicInformation() {
-        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
-        val lastUpdate = sharedPref?.getLong(getString(R.string.shared_pref_last_update), 0)
-        if (lastUpdate == null || TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - lastUpdate) > 0) {
-            job = viewLifecycleOwner.lifecycleScope.launchWhenResumed {
-                viewModel.refreshData().collectLatest {
-                    if (it) {
-                        with(sharedPref?.edit()) {
-                            this?.apply {
-                                putLong(
-                                    getString(R.string.shared_pref_last_update),
-                                    System.currentTimeMillis()
-                                )
+        val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        val lastUpdate = sharedPref.getLong(getString(R.string.shared_pref_last_update), 0)
+        if (TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - lastUpdate) > 0) {
+            job = viewLifecycleOwner.lifecycleScope.launch {
+                repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                    viewModel.refreshData().collectLatest {
+                        if (it) {
+                            with(sharedPref.edit()) {
+                                this?.apply {
+                                    putLong(
+                                        getString(R.string.shared_pref_last_update),
+                                        System.currentTimeMillis()
+                                    )
+                                }
                             }
+                            findNavController().navigate(R.id.splash_to_main)
+                        } else {
+                            Toast.makeText(requireContext(), R.string.msg_error, Toast.LENGTH_LONG)
+                                .show()
                         }
-                        findNavController().navigate(R.id.splash_to_main)
-                    } else {
-                        Toast.makeText(requireContext(), R.string.msg_error, Toast.LENGTH_LONG)
-                            .show()
                     }
                 }
             }
