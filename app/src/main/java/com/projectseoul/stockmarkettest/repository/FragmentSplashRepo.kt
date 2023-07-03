@@ -20,7 +20,7 @@ class FragmentSplashRepo(application: Application) : BaseRepo(application) {
             try {
                 val companiesDeferred =
                     async {
-                        stockMarket.scrapeCompanies(
+                        stockMarketService.scrapeCompanies(
                             Const.CRAWLING_COMPANY_VALUE1,
                             Const.CRAWLING_VALUE_ALL
                         )
@@ -28,14 +28,14 @@ class FragmentSplashRepo(application: Application) : BaseRepo(application) {
 
                 val sectorListDeferred: List<Deferred<Response<SectorCrawling>>> = listOf(
                     async {
-                        stockMarket.getSectors(
+                        stockMarketService.getSectors(
                             Const.CRAWLING_SECTOR_VALUE1,
                             Const.CRAWLING_VALUE_KOSPI,
                             mostCurrentDate
                         )
                     },
                     async {
-                        stockMarket.getSectors(
+                        stockMarketService.getSectors(
                             Const.CRAWLING_SECTOR_VALUE1,
                             Const.CRAWLING_VALUE_KOSDAQ,
                             mostCurrentDate
@@ -43,7 +43,7 @@ class FragmentSplashRepo(application: Application) : BaseRepo(application) {
                     }
                 )
                 val digitalCurrenciesDeferred = async {
-                    upbit.getAllTickers(true)
+                    upbitService.getAllTickers(true)
                 }
 
                 val companiesResponse = companiesDeferred.await()
