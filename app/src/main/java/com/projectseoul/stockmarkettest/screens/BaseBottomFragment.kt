@@ -1,9 +1,6 @@
 package com.projectseoul.stockmarkettest.screens
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -14,13 +11,9 @@ import com.projectseoul.stockmarkettest.extensions.popBackStackAllInstances
  */
 open class BaseBottomFragment: Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreate(savedInstanceState: Bundle?) {
         addCallback()
-        return super.onCreateView(inflater, container, savedInstanceState)
+        super.onCreate(savedInstanceState)
     }
 
     private fun addCallback() {
