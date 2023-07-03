@@ -21,16 +21,16 @@ jobs:
         cache: gradle
     - name: access to secret
       run: |
-        echo "UPBIT_URL=$UPBIT_URL" >> local.properties
-        echo "OPEC_URL=$OPEC_URL" >> local.properties
-        echo "KRX_URL=$KRX_URL" >> local.properties
-        echo "IMPORT_EXPORT_URL=$IMPORT_EXPORT_URL" >> local.properties
-        echo "GOLD_SILVER_URL=$GOLD_SILVER_URL" >> local.properties
-        echo "CURRENCY_URL=$CURRENCY_URL" >> local.properties
-        echo "CURRENCY_KEY=$CURRENCY_KEY" >> local.properties
-        echo "COMMODITY_URL=$COMMODITY_URL" >> local.properties
-        echo "BASE_INTEREST_RATE_KEY=$BASE_INTEREST_RATE_KEY" >> local.properties
-        echo "BASE_INTEREST_RATE=$BASE_INTEREST_RATE" >> local.properties
+        echo "UPBIT_URL=\"$UPBIT_URL\"" >> local.properties
+        echo "OPEC_URL=\"$OPEC_URL\"" >> local.properties
+        echo "KRX_URL=\"$KRX_URL\"" >> local.properties
+        echo "IMPORT_EXPORT_URL=\"$IMPORT_EXPORT_URL\"" >> local.properties
+        echo "GOLD_SILVER_URL=\"$GOLD_SILVER_URL\"" >> local.properties
+        echo "CURRENCY_URL=\"$CURRENCY_URL\"" >> local.properties
+        echo "CURRENCY_KEY=\"$CURRENCY_KEY\"" >> local.properties
+        echo "COMMODITY_URL=\"$COMMODITY_URL\"" >> local.properties
+        echo "BASE_INTEREST_RATE_KEY=\"$BASE_INTEREST_RATE_KEY\"" >> local.properties
+        echo "BASE_INTEREST_RATE=\"$BASE_INTEREST_RATE\"" >> local.properties
       shell: bash
       env:
         UPBIT_URL: ${{secrets.UPBIT_URL}}
