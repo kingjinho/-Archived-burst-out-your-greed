@@ -27,7 +27,7 @@ class FragmentStockDetailRepo(application: Application) :
     suspend fun getBaseInfo(kd: String): HeaderWithBasicInfo {
         if (info.isEmpty()) {
             val result = execute {
-                stockMarket.getStockBaseInfo(kd)
+                stockMarketService.getStockBaseInfo(kd)
             }?.getBodyExt { it }
 
             if (result != null) {
@@ -40,7 +40,7 @@ class FragmentStockDetailRepo(application: Application) :
 
     suspend fun getQuotationHistory(kd: String): List<HeaderWithSingleLineChart> {
         if (quotations.isEmpty()) {
-            val async = execute { stockMarket.getQuotationHistory(kd, yearAgo, mostCurrentDate) }
+            val async = execute { stockMarketService.getQuotationHistory(kd, yearAgo, mostCurrentDate) }
             val result = async?.getBodyExt { it?.result } ?: emptyList()
             quotations += result
         }
@@ -71,7 +71,7 @@ class FragmentStockDetailRepo(application: Application) :
 
     suspend fun getDrawdowns(kd: String): List<Drawdown> {
         if (quotations.isEmpty()) {
-            val async = execute { stockMarket.getQuotationHistory(kd, yearAgo, mostCurrentDate) }
+            val async = execute { stockMarketService.getQuotationHistory(kd, yearAgo, mostCurrentDate) }
             val result = async?.getBodyExt { it?.result } ?: emptyList()
             quotations += result
         }
@@ -81,7 +81,7 @@ class FragmentStockDetailRepo(application: Application) :
 
     suspend fun getStatement(kd: String): HeaderWithStatement {
         if (statement.isEmpty()) {
-            val result = execute { stockMarket.getFinancialStatement(kd) }?.getBodyExt { it }
+            val result = execute { stockMarketService.getFinancialStatement(kd) }?.getBodyExt { it }
             if (result != null) {
                 statement.add(result)
             }
