@@ -28,10 +28,7 @@
             android:id="@+id/action_main_to_fragmentPortfolio"
             app:destination="@id/portfolio" />
     </fragment>
-    <fragment
-        android:id="@+id/search"
-        android:name="com.projectseoul.stockmarkettest.screens.FragmentSearch"
-        android:label="FragmentSearch" />
+
     <fragment
         android:id="@+id/detail"
         android:name="com.projectseoul.stockmarkettest.screens.FragmentStockDetail"
@@ -42,10 +39,6 @@
             android:defaultValue="null"/>
     </fragment>
 
-    <fragment
-        android:id="@+id/portfolio"
-        android:name="com.projectseoul.stockmarkettest.screens.FragmentPortfolio"
-        android:label="FragmentPortfolio" />
 
 
 </navigation>
