@@ -19,6 +19,30 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: gradle
+    - name: access to secret
+      run: |
+        echo "UPBIT_URL=$UPBIT_URL" >> local.properties
+        echo "OPEC_URL=$OPEC_URL" >> local.properties
+        echo "KRX_URL=$KRX_URL" >> local.properties
+        echo "IMPORT_EXPORT_URL=IMPORT_EXPORT_URL" >> local.properties
+        echo "GOLD_SILVER_URL=$GOLD_SILVER_URL" >> local.properties
+        echo "CURRENCY_URL=$CURRENCY_URL" >> local.properties
+        echo "CURRENCY_KEY=$CURRENCY_KEY" >> local.properties
+        echo "COMMODITY_URL=$COMMODITY_URL" >> local.properties
+        echo "BASE_INTEREST_RATE_KEY=$BASE_INTEREST_RATE_KEY" >> local.properties
+        echo "BASE_INTEREST_RATE=$BASE_INTEREST_RATE" >> local.properties
+      shell: bash
+      env:
+        UPBIT_URL: ${{secrets.UPBIT_URL}}
+        OPEC_URL: ${{secrets.OPEC_URL}}
+        KRX_URL: ${{secrets.KRX_URL}}
+        IMPORT_EXPORT_URL: ${{secrets.IMPORT_EXPORT_URL}}
+        GOLD_SILVER_URL: ${{secrets.GOLD_SILVER_URL}}
+        CURRENCY_URL: ${{secrets.CURRENCY_URL}}
+        CURRENCY_KEY: ${{secrets.CURRENCY_KEY}}
+        COMMODITY_URL: ${{secrets.COMMODITY_URL}}
+        BASE_INTEREST_RATE_KEY: ${{secrets.BASE_INTEREST_RATE_KEY}}
+        BASE_INTEREST_RATE: ${{secrets.BASE_INTEREST_RATE}}
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
