@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.projectseoul.stockmarkettest.databinding.*
 import com.projectseoul.stockmarkettest.recyclerview.viewholders.*
+import com.projectseoul.stockmarkettest.screens.main.ScreenMainMvc
 import com.projectseoul.stockmarkettest.utils.Const.LAYOUT_BALTIC_INDICES_SHORT
 import com.projectseoul.stockmarkettest.utils.Const.LAYOUT_GRAIN_SHORT
 import com.projectseoul.stockmarkettest.utils.Const.LAYOUT_MONTHLY_TRADING
@@ -28,7 +29,7 @@ class ItemViewHolderFactory {
         fun createByViewType(
             parent: ViewGroup,
             viewType: Int,
-            listener: ItemClickListener?
+            listener: ScreenMainMvc.ItemClickListener?
         ): BaseViewHolder {
             return when (viewType) {
                 LAYOUT_STOCK_FLUCTUATION_SHORT -> {
