@@ -22,13 +22,14 @@ data class StockFinancialStatement(
     @Json(name = Const.JSON_NETINCM)
     val netIncome: String,
 ) {
-    fun equals(other: StockFinancialStatement): Boolean {
-        return this.totalAsset == other.totalAsset && this.totalDebt == other.totalDebt
-        this.capital == other.capital
-        this.totalCapital == other.totalCapital
-        this.sales == other.sales
-        this.opIncome == other.opIncome
-        this.netIncome == netIncome
-
+    override fun equals(other: Any?): Boolean {
+        return (other as StockFinancialStatement?)?.let {
+            this.totalAsset == it.totalAsset && this.totalDebt == it.totalDebt
+                    && this.capital == it.capital
+                    && this.totalCapital == it.totalCapital
+                    && this.sales == it.sales
+                    && this.opIncome == it.opIncome
+                    && this.netIncome == netIncome
+        } ?: false
     }
 }
