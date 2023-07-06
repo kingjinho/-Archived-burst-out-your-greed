@@ -1,7 +1,8 @@
 package com.projectseoul.stockmarkettest.di.application
 
 import android.app.Application
-import androidx.appcompat.app.AppCompatActivity
+import com.projectseoul.stockmarkettest.database.AppDatabase
+import com.projectseoul.stockmarkettest.di.activity.IActivityComponent
 import com.projectseoul.stockmarkettest.di.annotation.scope.AppScope
 import com.projectseoul.stockmarkettest.network.*
 import dagger.Component
@@ -25,5 +26,8 @@ interface IApplicationComponent {
 
     fun importExportService(): ImportExportService
 
-    fun inject(activity: AppCompatActivity)
+    fun database(): AppDatabase
+
+    fun activity(): IActivityComponent.Factory
+
 }
