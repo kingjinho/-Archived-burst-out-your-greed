@@ -7,29 +7,31 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.projectseoul.stockmarkettest.R
 import com.projectseoul.stockmarkettest.databinding.FragmentSplashBinding
+import com.projectseoul.stockmarkettest.screens.ActivityMain
 import com.projectseoul.stockmarkettest.viewmodels.FragmentSplashViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
 /**
  * Created by KING JINHO on 9/14/2021
  */
 class ScreenSplash : Fragment() {
 
+    @Inject lateinit var viewModel: FragmentSplashViewModel
     private lateinit var binding: FragmentSplashBinding
-    private val viewModel by lazy {
-        ViewModelProvider(this).get(FragmentSplashViewModel::class.java)
-    }
+
     private var job: Job? = null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (requireActivity() as ActivityMain).activityComponent.inject(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,29 +55,22 @@ class ScreenSplash : Fragment() {
     }
 
     private fun getBasicInformation() {
-        val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
-        val lastUpdate = sharedPref.getLong(getString(R.string.shared_pref_last_update), 0)
-        if (TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - lastUpdate) > 0) {
-            job = viewLifecycleOwner.lifecycleScope.launch {
-                repeatOnLifecycle(Lifecycle.State.RESUMED) {
-                    viewModel.refreshData().collectLatest {
-                        if (it) {
-                            with(sharedPref.edit()) {
-                                this?.apply {
-                                    putLong(
-                                        getString(R.string.shared_pref_last_update),
-                                        System.currentTimeMillis()
-                                    )
-                                }
-                            }
-                            findNavController().navigate(R.id.splash_to_main)
-                        } else {
-                            Toast.makeText(requireContext(), R.string.msg_error, Toast.LENGTH_LONG)
-                                .show()
-                        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            if (!viewModel.shouldInvalidateLocalDatabase()) {
+                findNavController().navigate(R.id.splash_to_main)
+                return@launch
+            } else  {
+                viewModel.refreshData().collectLatest {
+                    if (it) {
+                        viewModel.updateLastUpdateDateInMilliSeconds()
+                        findNavController().navigate(R.id.splash_to_main)
+                    } else {
+                        Toast.makeText(requireContext(), R.string.msg_error, Toast.LENGTH_LONG)
+                            .show()
                     }
                 }
             }
         }
     }
+
 }
