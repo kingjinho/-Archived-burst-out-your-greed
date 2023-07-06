@@ -8,6 +8,7 @@ import com.projectseoul.stockmarkettest.R
 object Const {
     const val DB_NAME = "stock.db"
     const val SHARED_PREF_NAME = "stock"
+    const val NETWORK_TIMEOUT = 3000L
 
     const val TABLE_STOCK = "STOCK"
     const val TABLE_LAST_UPDATE = "LAST_UPDATE"
