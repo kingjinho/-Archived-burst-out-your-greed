@@ -1,8 +1,10 @@
 package com.projectseoul.stockmarkettest.repository
 
-import android.app.Application
 import com.projectseoul.stockmarkettest.extensions.getBodyExt
 import com.projectseoul.stockmarkettest.models.*
+import com.projectseoul.stockmarkettest.network.CommodityService
+import com.projectseoul.stockmarkettest.network.ImportExportService
+import com.projectseoul.stockmarkettest.network.StockMarketService
 import com.projectseoul.stockmarkettest.utils.Const
 import com.projectseoul.stockmarkettest.utils.Dates
 import com.projectseoul.stockmarkettest.utils.Dates.mostCurrentDate
@@ -10,11 +12,17 @@ import com.projectseoul.stockmarkettest.utils.Dates.weekAgo
 import com.projectseoul.stockmarkettest.utils.execute
 import com.projectseoul.stockmarkettest.utils.executeMultiple
 import okhttp3.internal.toImmutableList
+import java.util.PrimitiveIterator
+import javax.inject.Inject
 
 /**
  * Created by KING JINHO on 9/15/2021
  */
-class FragmentMainRepo(application: Application) : BaseRepo(application) {
+class ScreenMainRepo @Inject constructor(
+    private val stockMarketService: StockMarketService,
+    private val commodityService: CommodityService,
+    private val importExportService: ImportExportService
+) {
 
     private var fluctuation: List<StockByFluctuation>? = null
     private var transaction: List<StockByTransaction>? = null

@@ -1,19 +1,33 @@
 package com.projectseoul.stockmarkettest.repository
 
 import android.app.Application
+import android.content.Context
+import androidx.core.content.edit
 import androidx.room.withTransaction
+import com.projectseoul.stockmarkettest.database.AppDatabase
 import com.projectseoul.stockmarkettest.extensions.getBodyExt
 import com.projectseoul.stockmarkettest.models.SectorCrawling
+import com.projectseoul.stockmarkettest.network.StockMarketService
+import com.projectseoul.stockmarkettest.network.UpbitService
 import com.projectseoul.stockmarkettest.utils.Const
 import com.projectseoul.stockmarkettest.utils.Dates.mostCurrentDate
 import kotlinx.coroutines.*
 import retrofit2.Response
+import javax.inject.Inject
 
 /**
  * Created by KING JINHO on 9/14/2021
  */
-class FragmentSplashRepo(application: Application) : BaseRepo(application) {
+class FragmentSplashRepo @Inject constructor(
+    val application: Application,
+    private val stockMarketService: StockMarketService,
+    private val upbitService: UpbitService,
+    private val db: AppDatabase
+) {
 
+    private val sharedPref by lazy {
+        application.getSharedPreferences(Const.SHARED_PREF_NAME, Context.MODE_PRIVATE)
+    }
 
     suspend fun refreshData(): Boolean {
         return withContext(Dispatchers.IO) {
@@ -83,6 +97,19 @@ class FragmentSplashRepo(application: Application) : BaseRepo(application) {
                 ex.printStackTrace()
                 return@withContext false
             }
+        }
+    }
+
+    fun getLastUpdateDateInMilliSeconds(): Long {
+        return sharedPref.getLong(Const.SHARED_PREF_KEY_LAST_UPDATE, 0)
+    }
+
+    fun updateLastUpdateDateInMilliSeconds() {
+        sharedPref.edit {
+            putLong(
+                Const.SHARED_PREF_KEY_LAST_UPDATE,
+                System.currentTimeMillis()
+            )
         }
     }
 }
