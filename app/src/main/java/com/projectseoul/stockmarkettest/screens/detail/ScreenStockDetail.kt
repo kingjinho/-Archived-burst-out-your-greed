@@ -8,7 +8,9 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,6 +21,7 @@ import com.projectseoul.stockmarkettest.models.HeaderWithItems
 import com.projectseoul.stockmarkettest.recyclerview.HeaderWithItemsAdapter
 import com.projectseoul.stockmarkettest.viewmodels.FragmentStockDetailViewModel
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 /**
  * Created by KING JINHO on 9/28/2021
@@ -64,8 +67,8 @@ class ScreenStockDetail : Fragment() {
         return binding.root
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         fetchData()
     }
 
@@ -79,18 +82,21 @@ class ScreenStockDetail : Fragment() {
         binding.retry.isVisible = false
         binding.progressBar.isVisible = true
 
-        job = viewLifecycleOwner.lifecycleScope.launchWhenResumed {
-            viewModel.fetch().collect {
-                val isFailed = it.isNullOrEmpty()
-                if (isFailed) {
-                    Toast.makeText(context, R.string.toast_data_empty, Toast.LENGTH_LONG).show()
-                } else {
-                    parentAdapter.submitList(it)
+        job = viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                viewModel.fetch().collect {
+                    val isFailed = it.isNullOrEmpty()
+                    if (isFailed) {
+                        Toast.makeText(context, R.string.toast_data_empty, Toast.LENGTH_LONG).show()
+                    } else {
+                        parentAdapter.submitList(it)
+                    }
+                    binding.list.isVisible = !isFailed
+                    binding.progressBar.isVisible = false
+                    binding.retry.isVisible = isFailed
                 }
-                binding.list.isVisible = !isFailed
-                binding.progressBar.isVisible = false
-                binding.retry.isVisible = isFailed
             }
+
         }
     }
 
