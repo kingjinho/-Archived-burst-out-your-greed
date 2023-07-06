@@ -1,30 +1,30 @@
 package com.projectseoul.stockmarkettest.screens.main
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.projectseoul.stockmarkettest.models.BaseStock
 import com.projectseoul.stockmarkettest.models.StockByBlockDeal
+import com.projectseoul.stockmarkettest.screens.ActivityMain
 import com.projectseoul.stockmarkettest.screens.BaseBottomFragment
-import com.projectseoul.stockmarkettest.viewmodels.FragmentMainViewModel
+import com.projectseoul.stockmarkettest.viewmodels.ScreenMainViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
  * Created by KING JINHO on 9/14/2021
  */
 class ScreenMain : BaseBottomFragment(), ScreenMainMvc.ItemClickListener {
 
-    private val viewModel by lazy {
-        ViewModelProvider(this)[FragmentMainViewModel::class.java]
-    }
+    @Inject lateinit var viewModel: ScreenMainViewModel
     private lateinit var viewMvc: ScreenMainMvc
     private var job: Job? = null
 
@@ -36,6 +36,11 @@ class ScreenMain : BaseBottomFragment(), ScreenMainMvc.ItemClickListener {
         }
         val direction = ScreenMainDirections.mainToDetail(stockCode!!)
         findNavController().navigate(direction)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (requireActivity() as ActivityMain).activityComponent.inject(this)
     }
 
     override fun onCreateView(
