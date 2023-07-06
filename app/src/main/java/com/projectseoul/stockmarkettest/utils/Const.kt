@@ -7,6 +7,7 @@ import com.projectseoul.stockmarkettest.R
  */
 object Const {
     const val DB_NAME = "stock.db"
+    const val SHARED_PREF_NAME = "stock"
 
     const val TABLE_STOCK = "STOCK"
     const val TABLE_LAST_UPDATE = "LAST_UPDATE"
@@ -194,6 +195,8 @@ object Const {
     const val COLUMN_NAME = "NAME"
     const val COLUMN_NAME_ENG = "NAME_ENG"
     const val COLUMN_HAS_WARNING = "HAS_WARNING"
+
+    const val SHARED_PREF_KEY_LAST_UPDATE = "last_update"
 
 
     const val LAYOUT_STOCK_FLUCTUATION = R.layout.item_stock_fluctuation
