@@ -6,9 +6,12 @@ import com.projectseoul.stockmarkettest.BuildConfig
 import com.projectseoul.stockmarkettest.adapters.CryptoCurrencyJsonAdapter
 import com.projectseoul.stockmarkettest.adapters.DateJsonAdapter
 import com.projectseoul.stockmarkettest.adapters.MonthlyTradingJsonAdapter
+import com.projectseoul.stockmarkettest.database.AppDatabase
+import com.projectseoul.stockmarkettest.di.activity.IActivityComponent
 import com.projectseoul.stockmarkettest.di.annotation.named.*
 import com.projectseoul.stockmarkettest.di.annotation.scope.AppScope
 import com.projectseoul.stockmarkettest.network.*
+import com.projectseoul.stockmarkettest.utils.Const
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -19,7 +22,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
-@Module
+@Module(
+    subcomponents = [IActivityComponent::class]
+)
 class ApplicationModule(
     private val application: Application
 ) {
@@ -48,9 +53,9 @@ class ApplicationModule(
     @Provides
     @AppScope
     fun client(logger: HttpLoggingInterceptor) = OkHttpClient.Builder()
-        .connectTimeout(100, TimeUnit.SECONDS)
-        .readTimeout(100, TimeUnit.SECONDS)
-        .writeTimeout(100, TimeUnit.SECONDS)
+        .connectTimeout(Const.NETWORK_TIMEOUT, TimeUnit.SECONDS)
+        .readTimeout(Const.NETWORK_TIMEOUT, TimeUnit.SECONDS)
+        .writeTimeout(Const.NETWORK_TIMEOUT, TimeUnit.SECONDS)
         .addInterceptor(logger)
         .build()
 
@@ -136,4 +141,8 @@ class ApplicationModule(
     @AppScope
     fun importExportService(@ImportExportRetrofit retrofit: Retrofit): ImportExportService =
         retrofit.create(ImportExportService::class.java)
+
+    @Provides
+    @AppScope
+    fun database(application: Application) = AppDatabase.getInstance(application)
 }
