@@ -35,6 +35,10 @@ class ApplicationModule(
 
     @Provides
     @AppScope
+    fun database(application: Application) = AppDatabase.getInstance(application)
+
+    @Provides
+    @AppScope
     fun moshi() = Moshi.Builder()
         .addLast(KotlinJsonAdapterFactory())
         .add(DateJsonAdapter())
@@ -141,8 +145,4 @@ class ApplicationModule(
     @AppScope
     fun importExportService(@ImportExportRetrofit retrofit: Retrofit): ImportExportService =
         retrofit.create(ImportExportService::class.java)
-
-    @Provides
-    @AppScope
-    fun database(application: Application) = AppDatabase.getInstance(application)
 }
