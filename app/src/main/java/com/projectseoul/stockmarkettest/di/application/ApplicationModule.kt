@@ -21,10 +21,9 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Named
 
-@Module(
-    subcomponents = [IActivityComponent::class]
-)
+@Module
 class ApplicationModule(
     private val application: Application
 ) {

@@ -23,14 +23,15 @@ import javax.inject.Inject
  */
 class ScreenSplash : Fragment() {
 
-    @Inject lateinit var viewModel: FragmentSplashViewModel
+    @Inject
+    lateinit var viewModel: FragmentSplashViewModel
     private lateinit var binding: FragmentSplashBinding
 
     private var job: Job? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        (requireActivity() as ActivityMain).activityComponent.inject(this)
+        (requireActivity() as ActivityMain).injector.inject(this)
     }
 
     override fun onCreateView(
@@ -59,7 +60,7 @@ class ScreenSplash : Fragment() {
             if (!viewModel.shouldInvalidateLocalDatabase()) {
                 findNavController().navigate(R.id.splash_to_main)
                 return@launch
-            } else  {
+            } else {
                 viewModel.refreshData().collectLatest {
                     if (it) {
                         viewModel.updateLastUpdateDateInMilliSeconds()

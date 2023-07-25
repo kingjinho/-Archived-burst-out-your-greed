@@ -9,6 +9,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.projectseoul.stockmarkettest.di.presentation.IPresentationComponent
 import com.projectseoul.stockmarkettest.models.BaseStock
 import com.projectseoul.stockmarkettest.models.StockByBlockDeal
 import com.projectseoul.stockmarkettest.screens.ActivityMain
@@ -40,7 +41,7 @@ class ScreenMain : BaseBottomFragment(), ScreenMainMvc.ItemClickListener {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        (requireActivity() as ActivityMain).activityComponent.inject(this)
+        (requireActivity() as ActivityMain).injector.inject(this)
     }
 
     override fun onCreateView(
