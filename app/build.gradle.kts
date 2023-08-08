@@ -1,5 +1,7 @@
 import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 
+private val property = gradleLocalProperties(rootDir)
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -103,5 +105,5 @@ dependencies {
 }
 
 fun getValueByKey(key: String): String {
-    return gradleLocalProperties(rootDir).getProperty(key)
+    return property.getProperty(key)
 }
